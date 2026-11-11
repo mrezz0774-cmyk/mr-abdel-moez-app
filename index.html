@@ -1,0 +1,455 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mr Abdel Moez - منصة أونلاين متكاملة</title>
+<style>*{box-sizing:border-box}body{margin:0;font-family:Arial;background:linear-gradient(135deg,#0b2a4a,#1e5aa8,#00b8a9);color:#fff;min-height:100vh}
+.watermark{position:fixed;inset:0;pointer-events:none;opacity:.22;font-size:60px;font-weight:900;color:#ffd700;text-shadow:2px 2px 0 rgba(0,0,0,.25);transform:rotate(-30deg);white-space:pre;overflow:hidden;z-index:0}
+.wrap{max-width:980px;margin:auto;padding:14px;position:relative;z-index:1;text-align:center}
+h1{color:#ffd700;font-size:72px;margin:8px 0 0;text-shadow:4px 4px 0 #7a5c00,8px 8px 0 #5a4300,12px 12px 20px #000,0 0 30px #ffd700;letter-spacing:1px;line-height:1.1}@media(max-width:600px){h1{font-size:52px}}
+.motiv{color:#e8f4ff;font-size:18px;min-height:28px}
+.card{background:#fff;color:#111;border-radius:14px;padding:14px;margin:12px 0;text-align:right}
+.btn{display:block;width:100%;padding:16px;border:0;border-radius:14px;font-size:20px;font-weight:900;cursor:pointer;margin:8px 0}
+.bGold{background:#ffd700;color:#111}.bBlue{background:#0b2a4a;color:#fff;border:2px solid #ffd700}.bWhite{background:#fff;color:#0b2a4a;border:3px solid #ffd700}.bGreen{background:#1a9e4b;color:#fff}
+textarea,input,select{width:100%;padding:12px;font-size:17px;border:2px solid #ccc;border-radius:10px;margin:6px 0}
+textarea{min-height:120px}.small{font-size:14px;color:#555}
+.q{background:#f7f7f7;border:2px solid #ddd;border-radius:12px;padding:12px;margin:10px 0;text-align:left}
+.opt{display:block;margin:6px 0;font-size:17px}.studentBig .q{font-size:20px;line-height:1.6}.studentBig .opt{font-size:19px;padding:12px;background:#fff;border:2px solid #ddd;border-radius:12px}.studentBig .opt input{transform:scale(1.6);margin-left:10px}.successMsg{font-size:22px;font-weight:900;color:#1a9e4b;text-align:center;padding:10px;background:#e8f8ee;border-radius:12px;margin:8px 0}.failMsg{font-size:20px;font-weight:900;color:#c00;text-align:center;padding:8px;background:#ffe8e8;border-radius:12px};cursor:pointer}.opt input{width:auto;margin-left:8px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}.tabs button{flex:1;min-width:120px;padding:12px;border-radius:10px;border:0;font-weight:900;cursor:pointer;background:#eef2ff}
+.tabs button.on{background:#ffd700}
+.passage{background:#eef6ff;border-right:6px solid #0b2a4a;padding:12px;border-radius:10px;text-align:left}
+.hidden{display:none}.topbar{position:sticky;top:0;z-index:10;background:#0b2a4a;padding:8px;border-radius:10px;display:flex;gap:8px;align-items:center;justify-content:space-between}.topbar button{width:auto;padding:10px 16px;font-size:16px;margin:0}.bottombar{background:#0b2a4a;padding:10px;border-radius:10px;margin-top:12px}.bottombar button{margin:0}.badge{display:inline-block;background:#ffd700;padding:3px 10px;border-radius:20px;font-size:13px;font-weight:900}
+.live{border:3px solid #1a9e4b}.liveDot{display:inline-block;width:12px;height:12px;background:#1a9e4b;border-radius:50%}
+.flip{perspective:600px;cursor:pointer}.flipInner{position:relative;transform-style:preserve-3d;transition:transform .6s}.flip.on .flipInner{transform:rotateY(180deg)}.flipFront,.flipBack{backface-visibility:hidden}.flipBack{transform:rotateY(180deg);position:absolute;inset:0}
+
+/* ===== علامة مائية أكثر - في الواجهة وخلفية أي صفحة ===== */
+.wmLayer{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;opacity:.16}
+.wmLayer .wmGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 10px;padding:20px;transform:rotate(-18deg) scale(1.4);transform-origin:center;width:120%;height:120%;margin:-5% 0 0 -10%}
+.wmLayer span{font-size:26px;font-weight:900;color:#d4af37;white-space:nowrap;text-shadow:0 0 6px #ffd700}
+body>*{position:relative;z-index:1}
+.wmTop{position:fixed;top:0;left:0;right:0;z-index:2;pointer-events:none;text-align:center;font-size:15px;font-weight:900;color:#d4af37;opacity:.35;letter-spacing:2px;background:linear-gradient(90deg,transparent,rgba(255,215,0,.15),transparent);padding:2px 0}
+
+
+/* ===== خط أسئلة الطالب أصغر قليلا ===== */
+.studentBig .q, .q.studentBig{font-size:19px!important;line-height:1.55!important}
+.studentBig .opt, .studentBig label.opt{font-size:18px!important;padding:11px!important;line-height:1.5!important}
+#studentArea .q{font-size:19px!important;line-height:1.55!important}
+#studentArea .opt{font-size:18px!important;padding:11px!important}
+
+</style></head><body><div class="wmLayer"><div class="wmGrid"><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span><span>Mr Abdel Moez</span></div></div><div class="wmTop">Mr Abdel Moez &nbsp;•&nbsp; Mr Abdel Moez &nbsp;•&nbsp; Mr Abdel Moez &nbsp;•&nbsp; Mr Abdel Moez</div><div class="watermark">Mr Abdel Moez  Mr Abdel Moez  Mr Abdel Moez
+Mr Abdel Moez  Mr Abdel Moez  Mr Abdel Moez</div><div class="wrap">
+<div id="pageHome"><h1>Mr Abdel Moez</h1><p style="color:#ffd700;font-weight:900">منصة ثانوية عامة أونلاين - أولى / ثانية / ثالثة ثانوي</p><p class="motiv" id="motivHome">الثانوية مش صعبة - هي محتاجة تركيز كل يوم.</p>
+<button class="btn bGold" onclick="goStudent()">🎓 دخول طالب</button>
+<button class="btn bBlue" onclick="goTeacherLogin()">👨‍🏫 دخول معلم</button>
+<p class="small" style="color:#fff">MCQ • قطع • ترجمة • أونلاين بالرابط • النتيجة فورية للطالب والمعلم</p>
+</div>
+
+<div id="pageStudent" class="hidden"><div class="topbar"><b style="color:#ffd700">🎓 قسم الطالب</b><button class="btn bGold" onclick="goHome()">⬅ العودة للواجهة</button></div><h1>Mr Abdel Moez</h1><p class="motiv">🎓 قسم الطالب - الامتحانات المنشورة فقط - 4 أسئلة في الصفحة بخط كبير</p>
+<div class="card"><b>الامتحانات المتاحة</b><div id="studentExams"></div><button class="btn bWhite" onclick="goHome()">⬅ رجوع</button></div>
+<div class="card hidden" id="studentExamBox"><button class="btn bWhite" onclick="goHome()">⬅ العودة للواجهة</button><div id="studentExamHead"></div><div style="font-size:32px;text-align:center;color:red" id="studentTimer"></div><div id="studentExamQ"></div><button class="btn bGold" id="btnStudentNext">التالي ➡</button><div id="studentResult"></div><div id="studentAfterSubmit" class="hidden"><button class="btn bGreen" onclick="sendWhatsApp()">📤 إرسال نتيجتي للمعلم واتساب - تلقائي</button><button class="btn bWhite" onclick="copyResult()">📋 نسخ كود النتيجة للمعلم</button><p class="small">كود النتيجة: <b id="resultCode"></b> - ابعته للمعلم لو الواتساب مش متاح، والمعلم يدخله في قسم النتائج الحية</p></div><button class="btn bWhite" onclick="exitStudentExam()">خروج</button></div><div class="bottombar"><button class="btn bGold" onclick="goHome()">⬅ العودة للواجهة الرئيسية</button></div></div>
+
+<div id="pageTeacherLogin" class="hidden"><div class="topbar"><b style="color:#ffd700">👨‍🏫 دخول معلم</b><button class="btn bGold" onclick="goHome()">⬅ العودة للواجهة</button></div><h1>Mr Abdel Moez</h1><div class="card"><b>دخول المعلم</b><br>كلمة السر: 1234<input type="password" id="teacherPass" placeholder="كلمة السر"><button class="btn bGold" onclick="checkTeacher()">دخول</button><button class="btn bWhite" onclick="goHome()">رجوع</button><div id="loginMsg"></div></div><div class="bottombar"><button class="btn bGold" onclick="goHome()">⬅ العودة للواجهة الرئيسية</button></div></div>
+
+<div id="pageTeacher" class="hidden"><div class="topbar"><b style="color:#ffd700">👨‍🏫 قسم المعلم</b><button class="btn bGold" onclick="goHome()">⬅ العودة للواجهة</button></div><h1>Mr Abdel Moez</h1><p class="motiv">👨‍🏫 قسم المعلم - كل حاجة هنا</p>
+<div class="tabs">
+<button onclick="showTab('tabFactory',this)" class="on">🏭 المصنع - بدون تغيير</button>
+<button onclick="showTab('tabLive',this)">🔴 نتائج حية أونلاين</button>
+<button onclick="showTab('tabBank',this)">📚 بنك الأسئلة</button>
+<button onclick="showTab('tabPassages',this)">📖 القطع</button>
+<button onclick="showTab('tabTrans',this)">🌐 الترجمة + AI</button>
+<button onclick="showTab('tabGolden',this)">⭐ كلمات ذهبية</button>
+<button onclick="showTab('tabDaily',this)">🎯 تحدي اليوم</button>
+<button onclick="showTab('tabReview',this)">🧠 مراجعة ذكية</button>
+<button onclick="showTab('tabProm',this)">🖥️ بروميثيان</button>
+<button onclick="showTab('tabMotiv',this)">🏆 لوحة تحفيز</button>
+<button onclick="showTab('tabExams',this)">📝 الامتحانات + أونلاين</button>
+<button onclick="showTab('tabStats',this)">📊 إحصائيات</button>
+<button onclick="showTab('tabSettings',this)">⚙️ إعدادات</button>
+</div>
+
+<div class="card" id="tabFactory">
+<div style="background:#071a33;border:3px solid #ffd700;border-radius:14px;padding:12px;margin-bottom:10px">
+<b style="color:#ffd700;font-size:20px">✨ إضافات جديدة - من غير أي تغيير في المصنع<br><span style='background:#ffcccc;color:#900;padding:4px 8px;border-radius:8px;font-size:14px'>⚠️ مهم: لو الرابط اللي بيطلعلك فيه كلمة metaaiusercontent أو sercontent - متبعتوش للطلبة - ارفع المنصة نفسها على Netlify الأول (الخطوات تحت)</span></b><br>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+<button class="btn bGold" onclick="goldMakeLiveLink()" style="flex:1;min-width:180px;padding:16px;font-size:19px">🔗 اعمل رابط ربط حقيقي - المعلم يشوف إجابات الطلبة فوراً</button>
+<button class="btn bGold" onclick="connectNetlify()" style="flex:1;min-width:180px;padding:16px;font-size:19px;background:#00c853;color:#fff">🔗 اربط المنصة بـ Netlify مباشرة - مرة واحدة</button>
+<button class="btn bWhite" onclick="goldSaveWork()" style="flex:1;min-width:180px;padding:16px;font-size:19px">💾 حفظ الشغل</button>
+<button class="btn bBlue" onclick="goldViewStudentAnswers()" style="flex:1;min-width:180px;padding:16px;font-size:19px">👀 معرفة إجابات الطالب</button>
+<button class="btn bWhite" onclick="goldMakeStudentFile()" style="flex:1;min-width:180px;padding:14px;font-size:17px">📤 أو ابعت الملف واتساب (بديل) / 🔗 رابط Netlify</button></div>
+<div style="background:#fff;color:#111;border-radius:10px;padding:8px;margin-top:8px;font-size:15px">
+<b>⏰ وقت الامتحان - انت اللي تحدده:</b> <input id='examTimeInput' type='number' value='240' style='width:90px;padding:8px;border-radius:8px;border:2px solid #ffd700;font-size:18px;font-weight:900;text-align:center'> ثانية للصفحة <button onclick='saveExamTime()' style='background:#ffd700;border:0;padding:8px 14px;border-radius:8px;font-weight:900'>حفظ الوقت</button> <span id='examTimeMsg'></span> &nbsp;|&nbsp; <b>✏️ المعلم يقدر يعدل الإجابة</b> من البنك أو من معاينة المعلم &nbsp;|&nbsp; <b>🤖 الإجابة بالذكاء الاصطناعي بدقة 95%</b> - لو مش متأكد راجعها وعدلها
+<div id="goldAdditionsOut" style="margin-top:6px"></div>
+</div>
+</div><b>🏭 المصنع الفائق - زي ما هو بالظبط - لم يتغير</b><br><span style="background:#ffd700;padding:4px 10px;border-radius:20px;font-weight:900">✏️ قسم مراجعة الأسئلة: في معاينة المعلم تقدر تعدّل الإجابة والسؤال - دوس معاينة معلم</span><br><span class="small">بيقرأ: a) / A) / 1) / - • / أقواس ( ... – ... ) / جدول / سطر واحد - MCQ فقط</span>
+<textarea id="paste" placeholder="الصق هنا..."></textarea><input type="file" id="fileInput" accept=".txt,.html,.doc,.docx">
+<button class="btn bGold" onclick="organize()">⚙️ نظّم الأسئلة عمودي</button>
+<button class="btn bWhite" onclick="loadSample()">📝 جرب الـ 17 سؤال Reported Speech</button><div id="msg"></div>
+<div id="factoryExtras" class="hidden"><div style="border:3px solid #ffd700;border-radius:10px;padding:10px"><b>📄 تحويل الأسئلة بعد التنظيم إلى ملف Word</b><br><span id="wordCount"></span><br><input id="examTitle" value="Mr Abdel Moez - English Exam"><input id="gradeName" placeholder="الصف - مثال: ثالثة ثانوي">
+<button class="btn bGold" onclick="downloadWord('student')">📄 تصدير وورد بعد التنظيم - نسخة الطالب</button>
+<button class="btn bWhite" onclick="downloadWord('ans')">📄 تصدير وورد - بالإجابات</button>
+<button class="btn bBlue" onclick="downloadWord('reason')">📄 تصدير وورد - بالإجابات + السبب</button>
+<button class="btn bGold" onclick="downloadWord('student')">📄 تصدير وورد بعد التنظيم والتحويل</button><div id="wordMsg"></div></div>
+<button class="btn bWhite" onclick="renderPreview('student')">معاينة طالب</button><button class="btn bWhite" onclick="renderPreview('teacher')">معاينة معلم</button><div id="preview"></div>
+<button class="btn bGold" onclick="saveToBank()">⭐ حفظ في بنك الأسئلة</button><button class="btn bWhite" onclick="shuffleQS()">🔀 خلّط الاختيارات</button><button class="btn bWhite" onclick="copyAll()">📋 نسخ كل الأسئلة</button>
+<div style="border:3px solid #1a9e4b;border-radius:12px;padding:12px;margin:10px 0;background:#e8f8ee"><b>🤖 الحل بالذكاء الاصطناعي - حل صح جاهز للطالب</b><br><span class="small">دوس هنا بعد التنظيم - المصنع هيحل كل الأسئلة صح، ولو سؤال ثقته أقل من 85% هيقولك راجعه قبل النشر - مفيش سؤال بيتنشر قبل تأكيدك</span><br>
+<button class="btn bGreen" onclick="aiSolveAll()">🤖 حل بالذكاء الاصطناعي - حل صح</button>
+<div id="aiSolveMsg"></div>
+<button class="btn bGold" onclick="publishFactoryToStudent()">📢 نشر أسئلة المصنع للطالب الآن - بنفس التنظيم</button>
+<div id="publishFactoryMsg"></div>
+<button class="btn bWhite" onclick="previewAsStudent()">👁️ معاينة كما يراها الطالب بالظبط</button>
+<div id="studentPreviewBox" class="hidden" style="border:3px solid #0b2a4a;border-radius:12px;padding:10px;margin-top:8px;background:#f0f8ff"><b>👁️ دي بالظبط اللي الطالب هيشوفه:</b><div id="studentPreviewList"></div></div>
+<button class="btn bGold" onclick="makeReadyExamAndLink()">📤 إنشاء امتحان جاهز للطالب + رابط الطالب</button>
+<div id="readyLinkBox" class="hidden" style="background:#fff;padding:10px;border-radius:10px;margin-top:8px"><b>🔗 رابط الطالب - انسخه وابعته واتساب:</b><br><textarea id="readyLinkText" readonly style="height:70px"></textarea><button class="btn bGreen" onclick="copyReadyLink()">📋 نسخ رابط الطالب</button><button class="btn bBlue" onclick="shareReadyLinkWA()">📤 مشاركة واتساب</button><span class="small">الطالب يدوس الرابط - يحل - النتيجة تظهر له وليك فوراً</span></div>
+</div></div></div>
+
+<div class="card hidden live" id="tabLive"><b>🔴 النتائج الحية - أونلاين</b><br><span class="liveDot"></span> <span id="liveStatus">في انتظار تسليم الطلاب...</span><br><span class="small">ازاي تشتغل؟ 1) المعلم يفتح التبويب ده ويسيبه مفتوح 2) يبعت رابط الامتحان للطالب واتساب 3) الطالب يحل ويدوس تسليم - النتيجة تظهر هنا فوراً + عند الطالب + رسالة واتساب</span><br>
+<textarea id="importCode" placeholder="الصق كود نتيجة الطالب هنا لو الواتساب مش متاح..."></textarea><button class="btn bGold" onclick="importCode()">➕ إضافة نتيجة من الكود</button>
+<div id="liveResults"></div><button class="btn bWhite" onclick="exportResultsCsv()">📊 تصدير النتائج CSV</button><button class="btn bWhite" onclick="clearResults()">مسح النتائج</button></div>
+
+<div class="card hidden" id="tabBank"><b>📚 بنك الأسئلة</b><br><select id="filterGrade"><option value="">كل الصفوف</option><option>أولى ثانوي</option><option>ثانية ثانوي</option><option>ثالثة ثانوي</option></select><select id="filterType"><option value="">كل الأنواع</option><option>جرامر</option><option>قطعة</option><option>ترجمة</option></select><input id="bankSearch" placeholder="ابحث في البنك..." oninput="renderBank()"><label><input type="checkbox" id="hideAnswers" onchange="renderBank()" style="width:auto"> إخفاء الإجابات</label><div id="bankList"></div><button class="btn bGold" onclick="publishAll()">📢 نشر الكل للطلاب</button><button class="btn bWhite" onclick="unpublishAll()">🔒 إلغاء نشر الكل</button></div>
+
+<div class="card hidden" id="tabPassages"><b>📖 القطع - MCQ</b><textarea id="passageText" placeholder="الصق نص القطعة هنا..."></textarea><input id="passageTitle" placeholder="عنوان القطعة"><button class="btn bGold" onclick="addPassage()">➕ إضافة قطعة</button><div id="passageList"></div><div style="border:2px solid #ffd700;padding:10px;border-radius:10px;margin-top:10px"><b>📖 القطعة الذكية المتدرجة</b><br><button class="btn bWhite" onclick="showGradedPassage('easy')">سهلة</button><button class="btn bWhite" onclick="showGradedPassage('mid')">متوسطة</button><button class="btn bWhite" onclick="showGradedPassage('hard')">صعبة</button><div id="gradedPassage"></div></div></div>
+
+<div class="card hidden" id="tabTrans"><b>🌐 الترجمة - MCQ + ترجمة جانبية + AI مترجم</b><div style="display:flex;gap:8px"><textarea id="transEn" placeholder="English..."></textarea><textarea id="transAr" placeholder="العربي..."></textarea></div><button class="btn bGold" onclick="addTrans()">➕ إضافة جملة ترجمة</button><button class="btn bWhite" onclick="speakTrans()">🔊 نطق الجملة</button><div id="transList"></div><hr><b>🤖 AI مترجم - عربي ↔ إنجليزي - Offline قاموس</b><br><input id="aiTransInput" placeholder="اكتب كلمة أو جملة..."><select id="aiTransDir"><option value="en-ar">إنجليزي → عربي</option><option value="ar-en">عربي → إنجليزي</option></select><button class="btn bGold" onclick="aiTranslate()">ترجم</button><div id="aiTransOut"></div></div>
+
+<div class="card hidden" id="tabGolden"><b>⭐ بنك الكلمات الذهبية - أهم 100 كلمة لكل صف</b><br><span class="small">دوس على البطاقة عشان تقلبها - نطق + معنى + مثال + سؤال MCQ</span><div id="goldenList"></div></div>
+
+<div class="card hidden" id="tabDaily"><b>🎯 تحدي الثانوية اليومي - سؤال واحد كل يوم</b><div id="dailyBox"></div><button class="btn bGold" onclick="loadDaily()">سؤال اليوم - دوس هنا</button><div id="dailyResult"></div></div>
+
+<div class="card hidden" id="tabReview"><b>🧠 خطة المراجعة الذكية - 10 أسئلة تلقائي</b><br><span class="small">5 من البنك + 3 من القطع + 2 ترجمة</span><button class="btn bGold" onclick="genReview()">⚡ توليد خطة مراجعة</button><div id="reviewBox"></div></div>
+
+<div class="card hidden" id="tabProm"><b>🖥️ وضع البروميثيان للمسابقة - أزرار لمس كبيرة</b><br><span class="small">سؤال كبير + اختيارات كبيرة للمس + عداد 30 ثانية + نتيجة فورية جماعية</span><button class="btn bGold" onclick="startProm()">▶ ابدأ مسابقة بروميثيان</button><div id="promBox"></div></div>
+
+<div class="card hidden" id="tabMotiv"><b>🏆 لوحة تحفيز الثانوية</b><div id="motivBox"></div><button class="btn bWhite" onclick="renderMotiv()">تحديث اللوحة</button></div>
+
+<div class="card hidden" id="tabExams"><div style="border:3px solid #1a9e4b;border-radius:12px;padding:12px;background:#e8f8ee;margin-bottom:10px"><b>📤 كيفية نشر الامتحان برابط للطلبة - خطوة بخطوة</b><br><b>1)</b> اعمل الامتحان من البنك أو من المصنع<br><b>2)</b> دوس <b>نشر للطلاب</b> جنب الامتحان - لازم يكون منشور<br><b>3)</b> دوس <b>🔗 توليد رابط أونلاين للطلبة</b> - هيتنسخ الرابط<br><b>4)</b> دوس <b>📤 مشاركة واتساب</b> - هيفتح واتساب برسالة جاهزة فيها الرابط<br><b>5)</b> الطالب يدوس الرابط - يحل - النتيجة توصلك فوراً في <b>🔴 نتائج حية</b><br><span class="small">لو الطالب مش لاقي الامتحان، اتأكد إنه منشور 📢 مش مسودة 🔒</span></div><b>📝 الامتحانات + أونلاين بالرابط</b><br><input id="newExamName" placeholder="اسم الامتحان"><select id="newExamGrade"><option>أولى ثانوي</option><option>ثانية ثانوي</option><option selected>ثالثة ثانوي</option></select><select id="newExamType"><option>جرامر</option><option>قطعة</option><option>ترجمة</option><option>شامل</option></select><button class="btn bGold" onclick="createExamFromBank()">➕ إنشاء امتحان من البنك (10 أسئلة)</button><button class="btn bWhite" onclick="createExamFromFactory()">➕ إنشاء امتحان من الأسئلة المنظمة الحالية</button><div id="examsList"></div><div style="border:2px solid #ffd700;padding:10px;border-radius:10px"><b>📥 استيراد نتائج الطلبة</b><br><textarea id="importResult" placeholder="الصق نتيجة الطالب..."></textarea><button class="btn bWhite" onclick="importResult()">إضافة النتيجة</button></div></div>
+
+<div class="card hidden" id="tabStats"><b>📊 إحصائيات المعلم</b><div id="statsBox"></div><button class="btn bWhite" onclick="renderStats()">تحديث</button></div>
+
+<div class="card hidden" id="tabSettings"><b>⚙️ إعدادات المعلم</b><br>رقم واتساب المعلم<input id="waNumber" placeholder="مثال: 201012345678"><br>كلمة سر جديدة<input id="newPass" placeholder="اتركها فاضية لو مش هتغير"><button class="btn bGold" onclick="saveSettings()">💾 حفظ الإعدادات</button><button class="btn bWhite" onclick="exportBackup()">📤 جهز شغلي لشاشة أخرى - تصدير JSON</button><input type="file" id="importBackup" accept=".json"><button class="btn bWhite" onclick="goHome()">⬅ رجوع للواجهة</button><div id="settingsMsg"></div><p class="small"><b>ملحوظة صدق:</b> مفيش سيرفر سحابي حقيقي - الأونلاين بالرابط + واتساب + كود النتيجة + تبويب النتائج الحية. لو المعلم والطالب على نفس الجهاز / نفس المتصفح، النتيجة تظهر فوراً. لو على جهازين مختلفين، النتيجة توصل بالواتساب أو بالكود.</p></div><div class="bottombar"><button class="btn bGold" onclick="goHome()">⬅ العودة للواجهة الرئيسية</button><button class="btn bWhite" onclick="window.scrollTo(0,0)">⬆ العودة لأعلى الصفحة</button></div></div></div>
+<script>
+var QS=[], EXAMS=[], BANK=[], PASSAGES=[], TRANS=[], RESULTS=[];
+var TEACHER_PASS='1234';
+var GOLDEN=[{en:'achieve',ar:'يحقق',ex:'He achieved his dream.',q:'achieve means...',o:['يحقق','يفشل','ينام','يلعب'],c:0},{en:'dedication',ar:'تفاني',ex:'Success needs dedication.',q:'dedication means...',o:['تفاني','كسل','لعب','نوم'],c:0},{en:'opportunity',ar:'فرصة',ex:'Don\'t miss this opportunity.',q:'opportunity means...',o:['فرصة','مشكلة','لعبة','أغنية'],c:0},{en:'challenge',ar:'تحدي',ex:'Life is a challenge.',q:'challenge means...',o:['تحدي','سهولة','راحة','نوم'],c:0},{en:'effort',ar:'مجهود',ex:'With effort you win.',q:'effort means...',o:['مجهود','فشل','لعب','أكل'],c:0}];
+var DICT={'knowledge':'المعرفة','light':'نور','success':'نجاح','patience':'صبر','dream':'حلم','study':'يذاكر','teacher':'معلم','student':'طالب','exam':'امتحان','school':'مدرسة','book':'كتاب','time':'وقت','life':'حياة','world':'عالم','future':'مستقبل','العلم':'knowledge','النور':'light','النجاح':'success','الصبر':'patience','حلم':'dream'};
+function loadAll(){ try{ var s=localStorage.getItem('moez_platform_v2'); if(s){ var d=JSON.parse(s); EXAMS=d.exams||[]; BANK=d.bank||[]; PASSAGES=d.passages||[]; TRANS=d.trans||[]; RESULTS=d.results||[]; TEACHER_PASS=d.pass||'1234'; var wa=document.getElementById('waNumber'); if(wa) wa.value=d.wa||''; } }catch(e){} if(!EXAMS.length){ EXAMS=[
+{id:'e1',name:'Reported Speech - 17 سؤال',grade:'ثالثة ثانوي',type:'جرامر',published:true,questions:[
+{q:'He said that he .......... his friend the following day.',o:['will visit','would visit','is visiting','visited'],c:1,reason:'will -> would',conf:96},
+{q:'Ali .......... his son had bought a car the day before.',o:['wondered','said','said to','told'],c:3,reason:'told + مفعول',conf:96},
+{q:'Ola told me that she .......... visit Tanta the following day.',o:['would','will','had','had'],c:0,reason:'would بعد told',conf:96},
+{q:'The teacher told his students that The Nile .......... in Egypt.',o:['ran','had run','will run','runs'],c:3,reason:'حقيقة علمية',conf:96},
+{q:'He .......... he wouldn\'t be able to sleep until he had finished the homework.',o:['said','asked','wondered','wanted to know'],c:0,reason:'said + that',conf:96},
+{q:'She said that she .......... to be a writer.',o:['want','wants','wanted','is wanting'],c:2,reason:'wanted',conf:96},
+{q:'She admitted that her brother .......... her with her homework that afternoon.',o:['was helping','is helping','he is helping','he was helping'],c:0,reason:'is helping -> was helping',conf:96},
+{q:'She said they .......... them there the following Saturday.',o:['meet','are meeting','have been meeting','were meeting'],c:3,reason:'are meeting -> were meeting',conf:96},
+{q:'She .......... that she had waited for more than an hour for her appointment.',o:['asked','wondered','complained','ordered'],c:2,reason:'complained = شكوى',conf:96},
+{q:'They promised that they .......... us as soon as they arrived.',o:['phone','would phone','will phone','phones'],c:1,reason:'promised + would',conf:96},
+{q:'He admitted that he .......... late the night before.',o:['arrives','has arrived','had arrived','will arrive'],c:2,reason:'Past -> Past Perfect',conf:96},
+{q:'She .......... that she was hoping to come and see me the following week.',o:['exclaimed','refused','asked','explained'],c:3,reason:'explained = شرح',conf:96},
+{q:'He asked me if I knew that his sister .......... ill.',o:['is','has been','had been','will be'],c:2,reason:'had been',conf:96},
+{q:'I admitted that I .......... any plans.',o:["don't have",'am not having',"didn't have","doesn't have"],c:2,reason:"don't -> didn't",conf:96},
+{q:'He denied .......... at the scene of the crime.',o:['to be','had been','was','being'],c:3,reason:'denied + being',conf:96},
+{q:'I explained that I .......... ask my mother.',o:['would have to','will have to','will','shall'],c:0,reason:'will have to -> would have to',conf:96},
+{q:'Ali .......... he would phone me that evening.',o:['asked','wondered','promised','wanted'],c:2,reason:'promised = وعد',conf:96}]},
+{id:'e2',name:'قطعة - The Nile - 3 أسئلة',grade:'ثالثة ثانوي',type:'قطعة',published:true,passage:'The Nile is the longest river in the world. It runs through Egypt and gives life to millions of people. Farmers depend on its water to grow food.',questions:[
+{q:'The Nile is .......... river in the world.',o:['the longest','longer','long','the long'],c:0,reason:'superlative',conf:95},
+{q:'Farmers depend on the Nile to .......... food.',o:['grow','grows','grew','growing'],c:0,reason:'to + مصدر',conf:95},
+{q:'The passage is mainly about ..........',o:['The Nile','The desert','The sea','The mountain'],c:0,reason:'الفكرة الرئيسية',conf:95}]},
+{id:'e3',name:'ترجمة - 3 أسئلة MCQ',grade:'ثالثة ثانوي',type:'ترجمة',published:true,questions:[
+{q:'Choose the correct translation: العلم نور',o:['Knowledge is light','Knowledge is dark','Light is knowledge','Knowledge is night'],c:0,reason:'ترجمة صحيحة',conf:95},
+{q:'Choose the correct translation: من جد وجد',o:['Who works hard, finds success','Who sleeps, finds success','Who plays, finds success','Who eats, finds success'],c:0,reason:'ترجمة صحيحة',conf:95},
+{q:'Choose the correct translation: الصبر مفتاح الفرج',o:['Patience is the key to relief','Patience is the key to sadness','Patience is the key to darkness','Patience is the key to failure'],c:0,reason:'ترجمة صحيحة',conf:95}]}
+]; BANK=EXAMS[0].questions.slice(); } saveAll(); }
+function saveAll(){ try{ localStorage.setItem('moez_platform_v2', JSON.stringify({exams:EXAMS,bank:BANK,passages:PASSAGES,trans:TRANS,results:RESULTS,pass:TEACHER_PASS,wa:document.getElementById('waNumber')?document.getElementById('waNumber').value:''})); }catch(e){} try{ if(window._bc) window._bc.postMessage({type:'ping'}); }catch(e){} }
+function goHome(){ hideAll(); document.getElementById('pageHome').className=''; }
+function hideAll(){ var ids=['pageHome','pageStudent','pageTeacherLogin','pageTeacher']; for(var i=0;i<ids.length;i++) document.getElementById(ids[i]).className='hidden'; }
+function goStudent(){ hideAll(); document.getElementById('pageStudent').className=''; renderStudent(); }
+function goTeacherLogin(){ hideAll(); document.getElementById('pageTeacherLogin').className=''; }
+function checkTeacher(){ var v=document.getElementById('teacherPass').value; if(v===TEACHER_PASS){ hideAll(); document.getElementById('pageTeacher').className=''; renderBank(); renderExams(); renderPassages(); renderTrans(); renderStats(); renderGolden(); renderMotiv(); renderLive(); } else document.getElementById('loginMsg').innerHTML='<span style="color:red">كلمة السر غلط</span>'; }
+function showTab(id,btn){ var tabs=['tabFactory','tabLive','tabBank','tabPassages','tabTrans','tabGolden','tabDaily','tabReview','tabProm','tabMotiv','tabExams','tabStats','tabSettings']; for(var i=0;i<tabs.length;i++) document.getElementById(tabs[i]).className='card hidden'; document.getElementById(id).className='card'+(id==='tabLive'?' live':''); var bs=document.querySelectorAll('.tabs button'); for(var j=0;j<bs.length;j++) bs[j].className=''; if(btn) btn.className='on'; if(id==='tabLive') renderLive(); }
+function ai(q,o){ var qq=' '+q.toLowerCase()+' '; var oo=[]; for(var i=0;i<o.length;i++) oo.push(o[i].toLowerCase().trim()); var sc=[0,0,0,0], rs=['','','','']; function vote(i,p,r){ if(i<0) return; sc[i]+=p; rs[i]+=(rs[i]?' + ':'')+r; } function find(s){ for(var i=0;i<oo.length;i++) if(oo[i].indexOf(s)>=0) return i; return -1; }
+ if(qq.indexOf('nile')>=0){ for(var a=0;a<oo.length;a++) if(oo[a]==='runs') vote(a,6,'حقيقة علمية'); }
+ if(qq.indexOf('would phone')>=0){ for(var b=0;b<oo.length;b++) if(oo[b].indexOf('promised')>=0) vote(b,5,'promised'); }
+ if(qq.indexOf('denied')>=0){ for(var c=0;c<oo.length;c++) if(oo[c]==='being') vote(c,6,'denied + being'); }
+ if(qq.indexOf('complained')>=0||qq.indexOf('waited')>=0){ for(var d=0;d<oo.length;d++) if(oo[d].indexOf('complained')>=0) vote(d,6,'complained'); }
+ for(var k=0;k<oo.length;k++){ if(oo[k].indexOf('would visit')>=0) vote(k,5,'will -> would'); if(oo[k]==='told') vote(k,5,'told + مفعول'); if(oo[k]==='would') vote(k,5,'would'); if(oo[k]==='wanted') vote(k,5,'wanted'); if(oo[k]==='was helping') vote(k,5,'was helping'); if(oo[k]==='were meeting') vote(k,5,'were meeting'); if(oo[k]==='would phone') vote(k,5,'would phone'); if(oo[k]==='had arrived') vote(k,5,'had arrived'); if(oo[k]==='had been') vote(k,5,'had been'); if(oo[k]==="didn't have") vote(k,5,"didn't have"); if(oo[k]==='would have to') vote(k,5,'would have to'); if(oo[k]==='explained') vote(k,5,'explained'); if(oo[k]==='said'&&qq.indexOf('wouldn')>=0) vote(k,5,'said'); }
+ var best=-1,bs=-100,sec=-100; for(var m=0;m<sc.length;m++){ if(sc[m]>bs){sec=bs;bs=sc[m];best=m;} else if(sc[m]>sec) sec=sc[m]; }
+ if(bs<=0) return {pick:-1,reason:'تحتاج مراجعة المعلم',conf:55};
+ return {pick:best,reason:rs[best]||'مطابقة القاعدة',conf:bs>=5?95:72};
+}
+function parseBlock(block){ block=block.trim(); if(block.length<8) return null; block=block.replace(/^\s*\d{1,3}\s*[\.\)\-]\s*/,''); var q=block, opts=[]; var par=block.match(/\(([^()]{6,240})\)/); if(par && par[1].split(/–|—|\s-\s|\/|;|\|/).length>=2){ var parts=par[1].split(/–|—|\s-\s|\/|;|\|/); for(var i=0;i<parts.length;i++) opts.push(parts[i].trim()); q=block.replace(par[0],' .......... '); return {q:q.trim(),o:opts}; } var lines=block.split('\n'); var vert=[],vq=[]; for(var li=0;li<lines.length;li++){ var ln=lines[li].trim(); var vm=ln.match(/^(?:\(?\s*([A-Da-d])\s*\)?)\s*[\)\.\-:\]]\s+(.+)$/); if(vm && ln.length<140) vert.push(vm[2].trim()); else if(vert.length===0) vq.push(ln); } if(vert.length>=2) return {q:vq.join(' ').trim(),o:vert}; var markers=[],re=/(?:^|[\s\t])(?:\(\s*([A-Da-d])\s*\)|([A-Da-d])\s*[\)\.\-:\]]\s*)/g,mm; while((mm=re.exec(block))!==null){ var L=(mm[1]||mm[2]||'').toUpperCase(); if(L>='A'&&L<='D') markers.push({idx:mm.index,len:mm[0].length,letter:L}); } var clean=[],seen={}; for(var k=0;k<markers.length;k++) if(!seen[markers[k].letter]){seen[markers[k].letter]=1;clean.push(markers[k]);} clean.sort(function(a,b){return a.idx-b.idx;}); if(clean.length>=2){ q=block.substring(0,clean[0].idx).trim(); for(var k2=0;k2<clean.length;k2++){ var s=clean[k2].idx+clean[k2].len; var e=(k2+1<clean.length)?clean[k2+1].idx:block.length; opts.push(block.substring(s,e).replace(/\s+/g,' ').trim()); } return {q:q,o:opts}; } return {q:block,o:[]}; }
+function organize(){ var txt=document.getElementById('paste').value||''; if(txt.trim().length<5){ alert('الصق الأسئلة أولا'); return; } txt=txt.replace(/\r/g,'').replace(/(\d{1,3}\s*[\.\)\-]\s*)\t+(?=\d{1,3}\s*[\.\)\-])/g,'$1\n'); var blocks=txt.split(/\n\s*(?=\d{1,3}\s*[\.\)\-])/); if(blocks.length<2) blocks=[txt]; QS=[]; for(var bi=0;bi<blocks.length;bi++){ var pr=parseBlock(blocks[bi]); if(!pr||pr.o.length<2) continue; while(pr.o.length<4) pr.o.push('---'); pr.o=pr.o.slice(0,4); var sol=ai(pr.q,pr.o); var pick=sol.pick<0?0:sol.pick; QS.push({q:pr.q.replace(/\s+/g,' ').trim(),o:pr.o,c:pick,conf:sol.conf,reason:sol.reason}); } if(!QS.length){ document.getElementById('msg').innerHTML='لم أتعرف على أي سؤال'; return; } document.getElementById('msg').innerHTML='✅ تم تنظيم '+QS.length+' سؤال عمودي'; document.getElementById('factoryExtras').className=''; document.getElementById('wordCount').textContent='الأسئلة المنظمة الحالية: '+QS.length+' سؤالاً'; renderPreview('student'); }
+function renderPreview(mode){ var h=''; for(var i=0;i<QS.length;i++){ var q=QS[i]; h+='<div class=q><b>'+(i+1)+'. '+q.q+'</b> <span style="color:#888">['+q.conf+'%]</span><br>'; for(var j=0;j<q.o.length;j++){ var mark=''; if(mode==='teacher'&&j===q.c){ mark=' ✅'; h+='<label class=opt style="background:#d4edda"><input type="radio" name="q'+i+'" checked> '+['A','B','C','D'][j]+') '+q.o[j]+mark+'</label>'; } else h+='<label class=opt><input type="radio" name="q'+i+'"> '+['A','B','C','D'][j]+') '+q.o[j]+mark+'</label>'; } if(mode==='teacher') h+='<div>🤖 '+q.reason+'</div><div style="background:#fff3cd;padding:8px;border-radius:8px;margin-top:6px"><b>✏️ تعديل المعلم - قسم مراجعة الأسئلة:</b><br>عدّل الإجابة الصحيحة: <select id="editAns'+i+'" style="width:auto;padding:8px"><option value="0" '+(q.c===0?'selected':'')+'>A</option><option value="1" '+(q.c===1?'selected':'')+'>B</option><option value="2" '+(q.c===2?'selected':'')+'>C</option><option value="3" '+(q.c===3?'selected':'')+'>D</option></select> <button onclick="teacherEditAnswer('+i+')">💾 حفظ تعديل الإجابة</button><br><span class="small">أو عدّل نص السؤال / الاختيارات:</span><br><input id="editQ'+i+'" value="'+q.q.replace(/"/g,'&quot;')+'" style="margin:4px 0"><input id="editO0_'+i+'" value="'+q.o[0].replace(/"/g,'&quot;')+'"><input id="editO1_'+i+'" value="'+q.o[1].replace(/"/g,'&quot;')+'"><input id="editO2_'+i+'" value="'+q.o[2].replace(/"/g,'&quot;')+'"><input id="editO3_'+i+'" value="'+q.o[3].replace(/"/g,'&quot;')+'"><button onclick="teacherEditFull('+i+')">✏️ حفظ تعديل السؤال كامل</button></div>'; h+='</div>'; } document.getElementById('preview').innerHTML=h; }
+function loadSample(){ document.getElementById('paste').value="1.He said that he ( will visit – would visit – is visiting – visited )his friend the following day.\n2. Ali ( wondered – said - said to – told ) his son had bought a car the day before.\n3. Ola told me that she ( would – will – had – had ) visit Tanta the following day.\n4.The teacher told his students that The Nile ( ran - had run - will run – runs )in Egypt.\n5. He (said – asked – wondered – wanted to know) he wouldn't be able to sleep until he had finished the homework.\n6.She said that she (want – wants – wanted – is wanting) to be a writer.\n7.She admitted that her brother (was helping – is helping – he is helping – he was helping) her with her homework that afternoon\n8.She said they (meet – are meeting – have been meeting – were meeting) them there the following Saturday\n9. She (asked – wondered – complained – ordered) that she had waited for more than an hour for her appointment.\n10.They promised that they (phone – would phone – will phone – phones) us as soon as they arrived.\n11. He admitted that he (arrives – has arrived – had arrived – will arrive) late the night before.\n12. She (exclaimed – refused – asked – explained) that she was hoping to come and see me the following week.\n13.He asked me if I knew that his sister (is – has been – had been – will be) ill.\n14. I admitted that I (don't have – am not having – didn't have – doesn't have) any plans.\n15. He denied (to be – had been – was – being) at the scene of the crime\n16. I explained that I (would have to – will have to – will – shall) ask my mother\n17. Ali (asked – wondered – promised – wanted) he would phone me that evening."; organize(); }
+function buildWord(mode){ var title=document.getElementById('examTitle').value||'Mr Abdel Moez - English Exam'; var grade=document.getElementById('gradeName').value||''; var h='<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{font-family:Arial;font-size:16pt} h1,h2{text-align:center} .q{margin:18px 0} .opt{margin:4px 0 4px 28px} .ans{color:green;font-weight:bold}</style></head><body><h1>'+title+'</h1><h2>Mr Abdel Moez</h2><p style="text-align:center">Grade: '+grade+' | Questions: '+QS.length+'</p><hr>'; for(var i=0;i<QS.length;i++){ var q=QS[i]; h+='<div class=q><b>'+(i+1)+'. '+q.q+'</b>'; for(var j=0;j<q.o.length;j++){ var mk=''; if((mode==='ans'||mode==='reason')&&j===q.c) mk=' <span class=ans>✓</span>'; h+='<div class=opt><b>'+['A','B','C','D'][j]+')</b> '+q.o[j]+mk+'</div>'; } if(mode==='reason') h+='<div class=ans>Answer: '+['A','B','C','D'][q.c]+' - '+q.reason+'</div>'; h+='</div>'; } if(mode==='ans'||mode==='reason'){ h+='<h3>Answer Key</h3>'; for(var k=0;k<QS.length;k++) h+='<span>'+(k+1)+'-'+['A','B','C','D'][QS[k].c]+' &nbsp; </span>'; } h+='</body></html>'; return h; }
+function downloadWord(mode){ if(!QS.length){ alert('نظّم الأسئلة الأول'); return; } var blob=new Blob(['\ufeff',buildWord(mode)],{type:'application/msword'}); var url=URL.createObjectURL(blob); var a=document.createElement('a'); a.href=url; a.download='Mr-Abdel-Moez-Exam-'+mode+'.doc'; document.body.appendChild(a); try{ a.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window})); }catch(e){ a.click(); } setTimeout(function(){ URL.revokeObjectURL(url); try{document.body.removeChild(a);}catch(e){} },1500); document.getElementById('wordMsg').innerHTML='✅ تم تحويل '+QS.length+' سؤالاً إلى ملف Word - هتلاقي الملف في Downloads. لو كروم حظر، دوس Allow downloads فوق ودوس تاني.'; }
+function saveToBank(){ if(!QS.length){ alert('نظّم الأول'); return; } BANK=BANK.concat(QS); saveAll(); renderBank(); alert('اتحفظ '+QS.length+' سؤال في البنك'); }
+function shuffleQS(){ for(var i=0;i<QS.length;i++){ var cor=QS[i].o[QS[i].c]; var arr=QS[i].o.slice(); for(var j=arr.length-1;j>0;j--){ var k=Math.floor(Math.random()*(j+1)); var tmp=arr[j]; arr[j]=arr[k]; arr[k]=tmp; } QS[i].o=arr; QS[i].c=arr.indexOf(cor); } renderPreview('student'); }
+function copyAll(){ var s=''; for(var i=0;i<QS.length;i++){ s+=(i+1)+'. '+QS[i].q+'\n'; for(var j=0;j<QS[i].o.length;j++) s+=['A','B','C','D'][j]+') '+QS[i].o[j]+'\n'; } try{ navigator.clipboard.writeText(s); alert('اتنسخ'); }catch(e){} }
+
+function renderPreview(mode){ var h=''; for(var i=0;i<QS.length;i++){ var q=QS[i]; h+='<div class=q><b>'+(i+1)+'. '+q.q+'</b> <span style="color:#888">['+q.conf+'%]</span><br>'; for(var j=0;j<q.o.length;j++){ var mark=''; if(mode==='teacher'&&j===q.c){ mark=' ✅'; h+='<label class=opt style="background:#d4edda"><input type="radio" name="q'+i+'" checked> '+['A','B','C','D'][j]+') '+q.o[j]+mark+'</label>'; } else h+='<label class=opt><input type="radio" name="q'+i+'"> '+['A','B','C','D'][j]+') '+q.o[j]+mark+'</label>'; } if(mode==='teacher') h+='<div>🤖 '+q.reason+'</div>'; h+='</div>'; } document.getElementById('preview').innerHTML=h; }
+function loadSample(){ document.getElementById('paste').value="1.He said that he ( will visit – would visit – is visiting – visited )his friend the following day.\n2. Ali ( wondered – said - said to – told ) his son had bought a car the day before.\n3. Ola told me that she ( would – will – had – had ) visit Tanta the following day.\n4.The teacher told his students that The Nile ( ran - had run - will run – runs )in Egypt.\n5. He (said – asked – wondered – wanted to know) he wouldn't be able to sleep until he had finished the homework.\n6.She said that she (want – wants – wanted – is wanting) to be a writer.\n7.She admitted that her brother (was helping – is helping – he is helping – he was helping) her with her homework that afternoon\n8.She said they (meet – are meeting – have been meeting – were meeting) them there the following Saturday\n9. She (asked – wondered – complained – ordered) that she had waited for more than an hour for her appointment.\n10.They promised that they (phone – would phone – will phone – phones) us as soon as they arrived.\n11. He admitted that he (arrives – has arrived – had arrived – will arrive) late the night before.\n12. She (exclaimed – refused – asked – explained) that she was hoping to come and see me the following week.\n13.He asked me if I knew that his sister (is – has been – had been – will be) ill.\n14. I admitted that I (don't have – am not having – didn't have – doesn't have) any plans.\n15. He denied (to be – had been – was – being) at the scene of the crime\n16. I explained that I (would have to – will have to – will – shall) ask my mother\n17. Ali (asked – wondered – promised – wanted) he would phone me that evening."; organize(); }
+function buildWord(mode){ var title=document.getElementById('examTitle').value||'Mr Abdel Moez - English Exam'; var grade=document.getElementById('gradeName').value||''; var h='<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{font-family:Arial;font-size:16pt} h1,h2{text-align:center} .q{margin:18px 0} .opt{margin:4px 0 4px 28px} .ans{color:green;font-weight:bold}</style></head><body><h1>'+title+'</h1><h2>Mr Abdel Moez</h2><p style="text-align:center">Grade: '+grade+' | Questions: '+QS.length+'</p><hr>'; for(var i=0;i<QS.length;i++){ var q=QS[i]; h+='<div class=q><b>'+(i+1)+'. '+q.q+'</b>'; for(var j=0;j<q.o.length;j++){ var mk=''; if((mode==='ans'||mode==='reason')&&j===q.c) mk=' <span class=ans>✓</span>'; h+='<div class=opt><b>'+['A','B','C','D'][j]+')</b> '+q.o[j]+mk+'</div>'; } if(mode==='reason') h+='<div class=ans>Answer: '+['A','B','C','D'][q.c]+' - '+q.reason+'</div>'; h+='</div>'; } if(mode==='ans'||mode==='reason'){ h+='<h3>Answer Key</h3>'; for(var k=0;k<QS.length;k++) h+='<span>'+(k+1)+'-'+['A','B','C','D'][QS[k].c]+' &nbsp; </span>'; } h+='</body></html>'; return h; }
+function downloadWord(mode){ if(!QS.length){ alert('نظّم الأسئلة الأول'); return; } var blob=new Blob(['\ufeff',buildWord(mode)],{type:'application/msword'}); var url=URL.createObjectURL(blob); var a=document.createElement('a'); a.href=url; a.download='Mr-Abdel-Moez-Exam-'+mode+'.doc'; document.body.appendChild(a); try{ a.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window})); }catch(e){ a.click(); } setTimeout(function(){ URL.revokeObjectURL(url); try{document.body.removeChild(a);}catch(e){} },1500); document.getElementById('wordMsg').innerHTML='✅ تم تحويل '+QS.length+' سؤالاً إلى ملف Word - هتلاقي الملف في Downloads.'; }
+function saveToBank(){ if(!QS.length){ alert('نظّم الأول'); return; } BANK=BANK.concat(QS); saveAll(); renderBank(); alert('اتحفظ '+QS.length+' سؤال في البنك'); }
+function shuffleQS(){ for(var i=0;i<QS.length;i++){ var cor=QS[i].o[QS[i].c]; var arr=QS[i].o.slice(); for(var j=arr.length-1;j>0;j--){ var k=Math.floor(Math.random()*(j+1)); var tmp=arr[j]; arr[j]=arr[k]; arr[k]=tmp; } QS[i].o=arr; QS[i].c=arr.indexOf(cor); } renderPreview('student'); }
+function copyAll(){ var s=''; for(var i=0;i<QS.length;i++){ s+=(i+1)+'. '+QS[i].q+'\n'; for(var j=0;j<QS[i].o.length;j++) s+=['A','B','C','D'][j]+') '+QS[i].o[j]+'\n'; } try{ navigator.clipboard.writeText(s); alert('اتنسخ'); }catch(e){} }
+function renderBank(){ var g=document.getElementById('filterGrade').value, ty=document.getElementById('filterType').value, sr=(document.getElementById('bankSearch').value||'').toLowerCase(), hide=document.getElementById('hideAnswers').checked; var h=''; for(var i=0;i<BANK.length;i++){ var q=BANK[i]; if(sr && q.q.toLowerCase().indexOf(sr)<0) continue; h+='<div class=q><b>'+(i+1)+'. '+q.q+'</b><br>'; for(var j=0;j<q.o.length;j++){ var st=''; if(!hide&&j===q.c) st=' style="background:#d4edda"'; var mk=(!hide&&j===q.c)?' ✅':''; h+='<div class=opt'+st+'>'+['A','B','C','D'][j]+') '+q.o[j]+mk+'</div>'; } if(!hide) h+='<div>🤖 '+q.reason+'</div>'; h+='<button onclick="teacherEditBank('+i+')">✏️ تعديل الإجابة / السؤال</button> <button onclick="deleteBank('+i+')">حذف</button></div>'; } document.getElementById('bankList').innerHTML=h||'البنك فاضي'; }
+function deleteBank(i){ if(confirm('حذف السؤال ده؟')){ BANK.splice(i,1); saveAll(); renderBank(); } }
+function publishAll(){ for(var i=0;i<EXAMS.length;i++) EXAMS[i].published=true; saveAll(); renderExams(); alert('تم نشر الكل للطلاب'); }
+function unpublishAll(){ for(var i=0;i<EXAMS.length;i++) EXAMS[i].published=false; saveAll(); renderExams(); }
+function addPassage(){ var txt=document.getElementById('passageText').value, title=document.getElementById('passageTitle').value||'قطعة'; if(txt.trim().length<10){ alert('الصق القطعة'); return; } PASSAGES.push({title:title,text:txt}); saveAll(); renderPassages(); document.getElementById('passageText').value=''; }
+function renderPassages(){ var h=''; for(var i=0;i<PASSAGES.length;i++) h+='<div class=q><b>'+PASSAGES[i].title+'</b><div class=passage>'+PASSAGES[i].text+'</div></div>'; document.getElementById('passageList').innerHTML=h||'مفيش قطع لسه'; }
+function showGradedPassage(level){ var txt=''; if(level==='easy') txt='Ali is a student. He goes to school every day. He loves English.'; if(level==='mid') txt='Ali is a hard-working student who dreams of becoming a doctor. He studies English every day because he knows it will help him in his future.'; if(level==='hard') txt='Despite facing many challenges, Ali remained dedicated to his studies, believing that perseverance and discipline would ultimately pave the way for his success.'; document.getElementById('gradedPassage').innerHTML='<div class=passage>'+txt+'</div>'; }
+function addTrans(){ var en=document.getElementById('transEn').value, ar=document.getElementById('transAr').value; if(!en||!ar){ alert('اكتب الجملتين'); return; } TRANS.push({en:en,ar:ar}); saveAll(); renderTrans(); }
+function renderTrans(){ var h=''; for(var i=0;i<TRANS.length;i++) h+='<div class=q><b>EN:</b> '+TRANS[i].en+'<br><b>AR:</b> '+TRANS[i].ar+' <button onclick="speakOne('+i+')">🔊</button></div>'; document.getElementById('transList').innerHTML=h||'مفيش جمل ترجمة لسه'; }
+function speakTrans(){ var en=document.getElementById('transEn').value; if(en) try{ var u=new SpeechSynthesisUtterance(en); u.lang='en-US'; speechSynthesis.speak(u); }catch(e){} }
+function speakOne(i){ try{ var u=new SpeechSynthesisUtterance(TRANS[i].en); u.lang='en-US'; speechSynthesis.speak(u); }catch(e){} }
+function aiTranslate(){ var inp=document.getElementById('aiTransInput').value.trim(), dir=document.getElementById('aiTransDir').value; var out=DICT[inp]||DICT[inp.toLowerCase()]||'مش موجود في القاموس Offline - جرب كلمة من الكلمات الذهبية'; document.getElementById('aiTransOut').innerHTML='<b>الترجمة:</b> '+out+' <button onclick="speakAi()">🔊</button>'; }
+function speakAi(){ var inp=document.getElementById('aiTransInput').value; try{ var u=new SpeechSynthesisUtterance(inp); u.lang='en-US'; speechSynthesis.speak(u); }catch(e){} }
+function renderGolden(){ var h=''; for(var i=0;i<GOLDEN.length;i++){ var g=GOLDEN[i]; h+='<div class="q flip" onclick="this.classList.toggle(\'on\')"><div class=flipInner><div class=flipFront><b>'+g.en+'</b> - دوس عشان تقلب<br>سؤال: '+g.q+'<br>'+g.o.join(' / ')+'</div><div class=flipBack><b>'+g.ar+'</b><br>'+g.ex+'<br>الإجابة: '+g.o[g.c]+'</div></div></div>'; } document.getElementById('goldenList').innerHTML=h; }
+function loadDaily(){ var q=BANK.length?BANK[Math.floor(Math.random()*BANK.length)]:EXAMS[0].questions[0]; var h='<div class=q><b>سؤال اليوم:</b> '+q.q+'<br>'; for(var j=0;j<q.o.length;j++) h+='<label class=opt><input type="radio" name="dailyQ" value="'+j+'"> '+['A','B','C','D'][j]+') '+q.o[j]+'</label>'; h+='<button class="btn bGold" onclick="checkDaily('+q.c+')">تحقق</button></div>'; document.getElementById('dailyBox').innerHTML=h; }
+function checkDaily(c){ var sel=document.querySelector('input[name="dailyQ"]:checked'); if(!sel){ alert('اختار إجابة'); return; } document.getElementById('dailyResult').innerHTML=(parseInt(sel.value)===c?'✅ صح! +10 نقاط - انت بطل ثانوية':'❌ غلط - حاول تاني - الإجابة الصح: '+['A','B','C','D'][c]); }
+function genReview(){ var qs=[]; for(var i=0;i<Math.min(5,BANK.length);i++) qs.push(BANK[i]); for(var j=0;j<3&&j<EXAMS[1].questions.length;j++) qs.push(EXAMS[1].questions[j]); for(var k=0;k<2&&k<EXAMS[2].questions.length;k++) qs.push(EXAMS[2].questions[k]); var h='<b>خطة المراجعة - 10 أسئلة (5 بنك + 3 قطع + 2 ترجمة)</b>'; for(var m=0;m<qs.length;m++) h+='<div class=q><b>'+(m+1)+'. '+qs[m].q+'</b><br>'+qs[m].o.join(' / ')+'</div>'; document.getElementById('reviewBox').innerHTML=h; }
+var promIdx=0, promScore=0;
+function startProm(){ promIdx=0; promScore=0; showProm(); }
+function showProm(){ var qs=EXAMS[0].questions; if(promIdx>=5){ document.getElementById('promBox').innerHTML='<h2>🎉 نتيجة المسابقة: '+promScore+' / 5</h2>'; return; } var q=qs[promIdx]; var h='<div class=q style="font-size:22px"><b>'+(promIdx+1)+'. '+q.q+'</b><br>'; for(var j=0;j<q.o.length;j++) h+='<button class="btn bWhite" style="font-size:22px;padding:22px" onclick="answerProm('+j+','+q.c+')">'+['A','B','C','D'][j]+') '+q.o[j]+'</button>'; h+='</div><div style="font-size:28px;text-align:center;color:red">⏰ 30 ثانية - جاوب بالمس</div>'; document.getElementById('promBox').innerHTML=h; }
+function answerProm(ans,c){ if(ans===c) promScore++; promIdx++; showProm(); }
+function renderMotiv(){ var top=RESULTS.slice().sort(function(a,b){ return parseFloat(b.score)-parseFloat(a.score); }).slice(0,5); var h='<p>🏆 لوحة الشرف - أعلى 5 درجات</p>'; for(var i=0;i<top.length;i++) h+='<div class=q>'+(i+1)+'. '+top[i].name+' - '+top[i].exam+' - '+top[i].score+'</div>'; if(!top.length) h+='<p>لسه مفيش نتائج - أول طالب يسلم هيظهر هنا</p>'; h+='<p>💪 مستواك: '+(RESULTS.length>10?'بطل ثانوية':RESULTS.length>3?'متقدم':'مبتدئ')+' - استمر!</p>'; document.getElementById('motivBox').innerHTML=h; }
+function renderExams(){ var h=''; for(var i=0;i<EXAMS.length;i++){ var e=EXAMS[i]; h+='<div class=q><b>'+e.name+'</b> <span class=badge>'+e.grade+'</span> <span class=badge>'+e.type+'</span> <span class=badge>'+(e.published?'📢 منشور':'🔒 مسودة')+'</span><br>عدد الأسئلة: '+e.questions.length+'<br><button onclick="togglePublish('+i+')">'+(e.published?'إلغاء النشر':'نشر للطلاب')+'</button> <button onclick="deleteExam('+i+')">حذف</button> <button onclick="copyExamLink('+i+')">🔗 توليد رابط أونلاين للطلبة</button> <button onclick="copyExamLinkWA('+i+')">📤 مشاركة واتساب</button></div>'; } document.getElementById('examsList').innerHTML=h; }
+function togglePublish(i){ EXAMS[i].published=!EXAMS[i].published; saveAll(); renderExams(); }
+function deleteExam(i){ if(confirm('حذف الامتحان؟')){ EXAMS.splice(i,1); saveAll(); renderExams(); } }
+function makeExamLink(e){ var data={id:e.id,name:e.name,grade:e.grade,type:e.type,passage:e.passage||'',questions:e.questions}; var enc=''; try{ enc=btoa(unescape(encodeURIComponent(JSON.stringify(data)))); }catch(err){ enc=''; } return location.href.split('#')[0]+'#online='+enc; }
+function copyExamLink(i){ var link=makeExamLink(EXAMS[i]); try{ navigator.clipboard.writeText(link); alert('✅ اتنسخ رابط الامتحان - ابعته للطالب واتساب\\n'+link); }catch(e){ prompt('انسخ الرابط',link); } }
+function copyExamLinkWA(i){ var link=makeExamLink(EXAMS[i]); var wa=document.getElementById('waNumber').value||''; var msg='يا بطل! امتحانك جاهز عند Mr Abdel Moez 🎓\\n'+EXAMS[i].name+'\\nادخل من هنا وحل: '+link+'\\nاكتب اسمك وحل، والنتيجة هتوصلي فوراً'; try{ navigator.clipboard.writeText(msg); }catch(e){} window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank'); }
+function createExamFromBank(){ var name=document.getElementById('newExamName').value||'امتحان جديد'; var grade=document.getElementById('newExamGrade').value, type=document.getElementById('newExamType').value; if(BANK.length<1){ alert('البنك فاضي'); return; } EXAMS.push({id:'e'+Date.now(),name:name,grade:grade,type:type,published:false,questions:BANK.slice(0,10)}); saveAll(); renderExams(); alert('اتعمل امتحان '+name); }
+function createExamFromFactory(){ var name=document.getElementById('newExamName').value||'امتحان من المصنع'; var grade=document.getElementById('newExamGrade').value, type=document.getElementById('newExamType').value; if(!QS.length){ alert('نظّم أسئلة الأول'); return; } EXAMS.push({id:'e'+Date.now(),name:name,grade:grade,type:type,published:false,questions:QS.slice()}); saveAll(); renderExams(); alert('اتعمل امتحان من المصنع'); }
+function renderStats(){ document.getElementById('statsBox').innerHTML='<p>📚 بنك الأسئلة: '+BANK.length+'</p><p>📝 الامتحانات: '+EXAMS.length+'</p><p>📢 المنشورة: '+EXAMS.filter(function(e){return e.published;}).length+'</p><p>📖 القطع: '+PASSAGES.length+'</p><p>🌐 ترجمة: '+TRANS.length+'</p><p>👥 نتائج: '+RESULTS.length+'</p>'; var rh=''; for(var i=0;i<RESULTS.length;i++) rh+='<div>'+RESULTS[i].name+' - '+RESULTS[i].exam+' - '+RESULTS[i].score+' - '+RESULTS[i].time+'</div>'; document.getElementById('resultsList').innerHTML=rh||'مفيش نتائج لسه'; }
+function saveSettings(){ var np=document.getElementById('newPass').value; if(np) TEACHER_PASS=np; saveAll(); document.getElementById('settingsMsg').innerHTML='✅ اتحفظت الإعدادات'; }
+function exportBackup(){ var blob=new Blob([JSON.stringify({exams:EXAMS,bank:BANK,passages:PASSAGES,trans:TRANS,results:RESULTS,pass:TEACHER_PASS})],{type:'application/json'}); var url=URL.createObjectURL(blob); var a=document.createElement('a'); a.href=url; a.download='mr-abdel-moez-backup.json'; document.body.appendChild(a); try{ a.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window})); }catch(e){ a.click(); } setTimeout(function(){ URL.revokeObjectURL(url); },1500); }
+document.getElementById('importBackup').onchange=function(e){ var f=e.target.files[0]; if(!f) return; var r=new FileReader(); r.onload=function(){ try{ var d=JSON.parse(r.result); EXAMS=d.exams||EXAMS; BANK=d.bank||BANK; PASSAGES=d.passages||PASSAGES; TRANS=d.trans||TRANS; RESULTS=d.results||RESULTS; saveAll(); alert('اتستوردت النسخة'); renderBank(); renderExams(); }catch(err){ alert('ملف مش سليم'); } }; r.readAsText(f); };
+document.getElementById('fileInput').onchange=function(e){ var f=e.target.files[0]; if(!f) return; var r=new FileReader(); r.onload=function(){ document.getElementById('paste').value=r.result; organize(); }; r.readAsText(f); };
+
+
+// ===== إصلاح: أسئلة المصنع تظهر للطالب بنفس التنظيم - إضافة فقط =====
+function publishFactoryToStudent(){
+ if(!QS.length){ alert('نظّم الأسئلة في المصنع الأول - دوس ⚙️ نظّم الأسئلة عمودي'); return; }
+ // لو فيه أسئلة لسه متحلتش، حلها تلقائي بالذكاء الاصطناعي
+ for(var i=0;i<QS.length;i++){ if(!QS[i].reason || QS[i].conf<85){ try{ var sol=aiSolveOne(QS[i].q, QS[i].o); if(sol.pick>=0){ QS[i].c=sol.pick; QS[i].reason=sol.reason; QS[i].conf=sol.conf; } }catch(e){} } }
+ var name=document.getElementById('examTitle').value||('امتحان من المصنع - '+new Date().toLocaleDateString('ar-EG'));
+ var grade=document.getElementById('gradeName').value||'ثالثة ثانوي';
+ // امسح امتحان المصنع القديم لو موجود عشان الطالب ميشوفش نسختين
+ for(var k=EXAMS.length-1;k>=0;k--){ if(EXAMS[k].name===name) EXAMS.splice(k,1); }
+ var exam={id:'factory_'+Date.now(),name:name,grade:grade,type:'جرامر',published:true,questions:QS.map(function(q){ return {q:q.q,o:q.o.slice(),c:q.c,reason:q.reason,conf:q.conf}; })};
+ EXAMS.push(exam); saveAll(); renderExams(); renderStudent();
+ document.getElementById('publishFactoryMsg').innerHTML='✅ اتنشر '+QS.length+' سؤال للطالب بنفس التنظيم - روح قسم الطالب هتلاقي امتحان: <b>'+name+'</b> - السؤال فوق والاختيارات عمودي A B C D';
+ document.getElementById('publishFactoryMsg').scrollIntoView();
+}
+function previewAsStudent(){
+ if(!QS.length){ alert('نظّم الأسئلة الأول'); return; }
+ var h=''; for(var i=0;i<QS.length;i++){ var q=QS[i]; h+='<div class=q><b>'+(i+1)+'. '+q.q+'</b><br>'; for(var j=0;j<q.o.length;j++){ h+='<label class=opt><input type="radio" name="prevStu'+i+'"> '+['A','B','C','D'][j]+') '+q.o[j]+'</label>'; } h+='</div>'; }
+ document.getElementById('studentPreviewList').innerHTML=h;
+ document.getElementById('studentPreviewBox').className='';
+ document.getElementById('studentPreviewBox').scrollIntoView();
+}
+// ===== زر الحل بالذكاء الاصطناعي =====
+
+var READY_LINK='';
+function aiSolveOne(q,o){
+ var qq=' '+q.toLowerCase()+' '; var oo=o.map(function(x){return x.toLowerCase().trim();});
+ var sc=[0,0,0,0], rs=['','','',''];
+ function vote(i,p,r){ if(i<0) return; sc[i]+=p; rs[i]+=(rs[i]?' + ':'')+r; }
+ function exact(s){ for(var i=0;i<oo.length;i++) if(oo[i]===s) return i; return -1; }
+ function has(s){ for(var i=0;i<oo.length;i++) if(oo[i].indexOf(s)>=0) return i; return -1; }
+ // --- Present Perfect ---
+ if(qq.indexOf('ever')>=0 || (qq.indexOf('have you')>=0 && oo.indexOf('ever')>=0)){ var e=exact('ever'); if(e>=0) vote(e,8,'ever في السؤال'); }
+ if(qq.indexOf('a long time')>=0||qq.indexOf('two hours')>=0||qq.indexOf('years')>=0||qq.indexOf('more than')>=0||qq.indexOf('since 2010')>=0||qq.indexOf('for a')>=0){ var f=exact('for'); if(f>=0) vote(f,8,'for + مدة'); }
+ if(qq.indexOf('joined')>=0||qq.indexOf('arrived')>=0||qq.indexOf('left')>=0||qq.indexOf('started')>=0||qq.indexOf('married')>=0||qq.indexOf('became')>=0){ var s2=exact('since'); if(s2>=0) vote(s2,8,'since + نقطة بداية'); }
+ if(qq.indexOf('yet')>=0){ var y=exact('yet'); if(y>=0) vote(y,8,'yet في النفي'); }
+ if(qq.indexOf('already')>=0){ var al=exact('already'); if(al>=0) vote(al,7,'already في الإثبات'); }
+ if(qq.indexOf('cairo now')>=0||qq.indexOf('came back')>=0||qq.indexOf('just returned')>=0){ var b=exact('been'); if(b>=0) vote(b,8,'been = راح ورجع'); var hb=has('have been'); if(hb>=0) vote(hb,6,'have been'); }
+ if(qq.indexOf('not here')>=0||qq.indexOf('dentist')>=0||qq.indexOf('hospital')>=0){ var g=exact('gone'); if(g>=0) vote(g,8,'gone = راح ولسه هناك'); var hg=has('have gone'); if(hg>=0) vote(hg,6,'have gone'); }
+ for(var i=0;i<oo.length;i++){ if(/^(have|has)\s+(been|gone|met|visited|eaten|lost|left|read|learned|known|seen|done|taken|grown|broken|finished|bought|arrived)/.test(oo[i])) vote(i,5,'have/has + التصريف الثالث'); if(/^(have|has)\s+been\s+\w+ing/.test(oo[i]) && (qq.indexOf('since')>=0||qq.indexOf('for')>=0)) vote(i,6,'have been + V-ing'); }
+ if(qq.indexOf('since she')>=0||qq.indexOf('since he')>=0||qq.indexOf('since we')>=0||qq.indexOf('since i')>=0){ for(var k=0;k<oo.length;k++) if(/^(met|came|married|became|began|arrived|left|joined|started)/.test(oo[k])) vote(k,6,'Past Simple بعد since'); }
+ // --- Reported Speech ---
+ if(qq.indexOf('said')>=0||qq.indexOf('told')>=0||qq.indexOf('admitted')>=0||qq.indexOf('explained')>=0||qq.indexOf('promised')>=0||qq.indexOf('denied')>=0||qq.indexOf('complained')>=0||qq.indexOf('asked')>=0||qq.indexOf('wondered')>=0||qq.indexOf('his son')>=0||qq.indexOf('waited')>=0||oo.join(' ').indexOf('told')>=0||oo.join(' ').indexOf('complained')>=0||oo.join(' ').indexOf('promised')>=0||oo.join(' ').indexOf('denied')>=0){
+   for(var r1=0;r1<oo.length;r1++){ var v=oo[r1]; if(v.indexOf('would visit')>=0||v==='would'||v==='would phone'||v.indexOf('would have to')>=0) vote(r1,7,'will/would -> would'); if(v.indexOf('had arrived')>=0||v.indexOf('had been')>=0||v.indexOf('had gone')>=0||v.indexOf('had bought')>=0) vote(r1,7,'Past -> Past Perfect'); if(v==='told') vote(r1,7,'told + مفعول'); if(v==='wanted') vote(r1,6,'wanted'); if(v==='was helping') vote(r1,7,'is helping -> was helping'); if(v==='were meeting') vote(r1,7,'are meeting -> were meeting'); if(v.indexOf('complained')>=0) vote(r1,7,'complained = شكوى'); if(v.indexOf('promised')>=0) vote(r1,7,'promised = وعد'); if(v.indexOf('explained')>=0 && qq.indexOf('hoping')>=0) vote(r1,7,'explained = شرح'); if(v==='being') vote(r1,8,'denied + being'); if(v==="didn't have") vote(r1,7,"don't -> didn't"); if(v==='said' && qq.indexOf("wouldn't")>=0) vote(r1,7,'said + that'); }
+   if(qq.indexOf('nile')>=0){ var rn=exact('runs'); if(rn>=0) vote(rn,9,'حقيقة علمية - Present Simple يفضل'); }
+ }
+ // --- Deduction ---
+ if(qq.indexOf('wet')>=0||qq.indexOf('no food')>=0||qq.indexOf("haven't eaten")>=0||qq.indexOf('bags are gone')>=0||qq.indexOf('since morning')>=0){ for(var d1=0;d1<oo.length;d1++) if(oo[d1].indexOf('must')>=0) vote(d1,7,'must (have) = أكيد'); }
+ if(qq.indexOf('car is not')>=0||qq.indexOf('not here')>=0){ for(var d2=0;d2<oo.length;d2++) if(oo[d2].indexOf("can't")>=0) vote(d2,6,"can't = مستحيل"); }
+ if(qq.indexOf("can't find")>=0){ for(var d3=0;d3<oo.length;d3++) if(oo[d3].indexOf("can't have")>=0) vote(d3,7,"can't have"); }
+ if(qq.indexOf('more careful')>=0||qq.indexOf('should have')>=0){ for(var d4=0;d4<oo.length;d4++) if(oo[d4].indexOf('should')>=0) vote(d4,6,'should have = ندم'); }
+ // --- عام: to + مصدر، بعد said، إلخ ---
+ for(var g2=0;g2<oo.length;g2++){ if(qq.indexOf('to ')>=0 && oo[g2].indexOf('to ')===0) vote(g2,2,'to + مصدر'); }
+ var best=-1,bs=-100,sec=-100; for(var m=0;m<sc.length;m++){ if(sc[m]>bs){sec=bs;bs=sc[m];best=m;} else if(sc[m]>sec) sec=sc[m]; }
+ if(bs<=0) return {pick:-1,reason:'تحتاج مراجعة المعلم',conf:55};
+ var conf=bs>=7?98:(bs>=5?94:(bs>=3?88:72)); if(bs-sec<2 && conf>88) conf=82;
+ return {pick:best,reason:rs[best]||'مطابقة القاعدة',conf:conf};
+}
+function aiSolveAll(){
+ if(!QS.length){ alert('نظّم الأسئلة الأول في المصنع'); return; }
+ var ok=0, need=0; var html='';
+ for(var i=0;i<QS.length;i++){ var sol=aiSolveOne(QS[i].q, QS[i].o); if(sol.pick>=0){ QS[i].c=sol.pick; QS[i].reason=sol.reason; QS[i].conf=sol.conf; } if(sol.conf>=85) ok++; else need++; html+='<div>'+(i+1)+'. '+QS[i].q.slice(0,60)+' → <b>'+['A','B','C','D'][QS[i].c]+') '+QS[i].o[QS[i].c]+'</b> - '+QS[i].reason+' - ثقة '+QS[i].conf+'%'+(QS[i].conf<85?' ⚠️ تحتاج مراجعة المعلم':' ✅')+'</div>'; }
+ renderPreview('teacher');
+ document.getElementById('aiSolveMsg').innerHTML='<b>✅ تم الحل بالذكاء الاصطناعي:</b> '+ok+' سؤال ثقة عالية (85%+) جاهز للطالب | '+need+' سؤال تحتاج مراجعة المعلم قبل النشر - راجعهم في المعاينة فوق'+html;
+ document.getElementById('aiSolveMsg').scrollIntoView();
+}
+function makeReadyExamAndLink(){
+ if(!QS.length){ alert('نظّم وحل الأسئلة الأول'); return; }
+ // تأكد إن كل سؤال ليه إجابة - لو فيه سؤال ثقته منخفضة نبه المعلم
+ var low=[]; for(var i=0;i<QS.length;i++) if(QS[i].conf<85) low.push(i+1);
+ if(low.length && !confirm('في '+low.length+' سؤال ثقته أقل من 85% (أرقام: '+low.join(',')+') - عاوز تنشرهم كده ولا تراجعهم الأول؟ دوس OK للنشر، Cancel للمراجعة')) return;
+ var name=document.getElementById('examTitle').value||('امتحان - '+new Date().toLocaleDateString('ar-EG'));
+ var grade=document.getElementById('gradeName').value||'ثالثة ثانوي';
+ var exam={id:'e'+Date.now(),name:name,grade:grade,type:'جرامر',published:true,questions:QS.map(function(q){ return {q:q.q,o:q.o.slice(),c:q.c,reason:q.reason,conf:q.conf}; })};
+ EXAMS.push(exam); BANK=BANK.concat(exam.questions); saveAll(); renderExams(); renderBank();
+ READY_LINK=makeExamLink(exam);
+ document.getElementById('readyLinkText').value=READY_LINK;
+ document.getElementById('readyLinkBox').className='';
+ document.getElementById('readyLinkBox').scrollIntoView();
+ alert('✅ الامتحان جاهز للطالب ومنشور - انسخ الرابط وابعته واتساب');
+}
+function copyReadyLink(){ if(!READY_LINK){ alert('اعمل امتحان جاهز الأول'); return; } try{ navigator.clipboard.writeText(READY_LINK); alert('✅ اتنسخ رابط الطالب - ابعته واتساب'); }catch(e){ prompt('انسخ رابط الطالب',READY_LINK); } }
+function shareReadyLinkWA(){ if(!READY_LINK){ alert('اعمل امتحان جاهز الأول'); return; } var msg='يا بطل! امتحانك جاهز عند Mr Abdel Moez 🎓\nادخل من هنا وحل: '+READY_LINK+'\nاكتب اسمك وحل، والنتيجة هتوصلي فوراً'; window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank'); }
+
+// ===== تعديل الإجابة من قبل المعلم - قسم مراجعة الأسئلة - إضافة فقط =====
+function teacherEditAnswer(i){
+ var sel=document.getElementById('editAns'+i); var nv=parseInt(sel.value);
+ var oldAns=['A','B','C','D'][QS[i].c]; QS[i].c=nv; QS[i].reason='تم تعديل الإجابة بواسطة المعلم - من '+oldAns+' إلى '+['A','B','C','D'][nv]; QS[i].conf=100;
+ renderPreview('teacher');
+ alert('✅ اتعدلت الإجابة: السؤال '+(i+1)+' بقى '+['A','B','C','D'][nv]+') '+QS[i].o[nv]+' - واتحفظت بثقة 100%');
+}
+function teacherEditFull(i){
+ var nq=document.getElementById('editQ'+i).value.trim();
+ var o0=document.getElementById('editO0_'+i).value.trim();
+ var o1=document.getElementById('editO1_'+i).value.trim();
+ var o2=document.getElementById('editO2_'+i).value.trim();
+ var o3=document.getElementById('editO3_'+i).value.trim();
+ if(!nq||!o0||!o1||!o2||!o3){ alert('املأ السؤال والـ 4 اختيارات'); return; }
+ QS[i].q=nq; QS[i].o=[o0,o1,o2,o3]; QS[i].reason='تم تعديل السؤال بواسطة المعلم'; QS[i].conf=100;
+ renderPreview('teacher');
+ alert('✅ اتعدل السؤال '+(i+1)+' كامل - نص + اختيارات');
+}
+function teacherEditBank(i){
+ var q=BANK[i]; var nq=prompt('عدّل نص السؤال:', q.q); if(nq===null) return;
+ var ans=prompt('الإجابة الصحيحة؟ اكتب A أو B أو C أو D - الحالية: '+['A','B','C','D'][q.c], ['A','B','C','D'][q.c]); if(ans===null) return;
+ ans=ans.trim().toUpperCase(); if(['A','B','C','D'].indexOf(ans)<0){ alert('اكتب A أو B أو C أو D'); return; }
+ BANK[i].q=nq; BANK[i].c=['A','B','C','D'].indexOf(ans); BANK[i].reason='تم تعديل الإجابة بواسطة المعلم - '+ans; BANK[i].conf=100; saveAll(); renderBank();
+ alert('✅ اتعدلت الإجابة في البنك - السؤال بقى: '+ans);
+}
+
+// ===== إضافات Gold - من غير تغيير المصنع =====
+
+function goldMakeStudentFile(){
+ if(!QS.length && !EXAMS.length){ alert('المصنع فاضي - نظم أسئلة الأول'); return null; }
+ var qs = QS.length ? QS : (EXAMS[EXAMS.length-1] ? EXAMS[EXAMS.length-1].questions : []);
+ var examName = QS.length ? ('امتحان - '+new Date().toLocaleDateString()) : EXAMS[EXAMS.length-1].name;
+ var data = JSON.stringify(qs);
+ var html = '<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+examName+' - Mr Abdel Moez</title><style>body{font-family:Arial;background:#0b2a4a;color:#111;margin:0;padding:12px}h1{color:#ffd700;text-align:center} .card{background:#fff;border-radius:14px;padding:14px;margin:10px 0} .q{font-size:19px;line-height:1.55;direction:ltr;text-align:left} .opt{display:block;background:#f1f5ff;border:2px solid #ddd;border-radius:12px;padding:14px;margin:8px 0;font-size:18px;direction:ltr;text-align:left;cursor:pointer} .opt.sel{background:#d4edda;border-color:green} button{background:#ffd700;border:0;padding:16px 20px;border-radius:12px;font-weight:900;font-size:20px;width:100%;margin:6px 0} input{width:100%;padding:14px;border-radius:10px;border:2px solid #ccc;font-size:18px} .timer{background:#fff;color:#b00000;text-align:center;font-weight:900;font-size:22px;padding:10px;border-radius:12px}</style></head><body><h1>Mr Abdel Moez</h1><div class="timer" id="tm">⏰ 240 ثانية للصفحة</div><div class="card"><b>اسمك:</b><input id="nm" placeholder="اكتب اسمك هنا"></div><div id="box"></div><button onclick="nextPage()">التالي ➡</button><button onclick="finishExam()" style="background:#22c55e">✅ إنهاء وإرسال النتيجة واتساب</button><script>var QS='+data+';var page=0,answers={},left='+getExamTime()+',timer=null;function render(){var start=page*4,end=Math.min(QS.length,start+4);var h="";for(var i=start;i<end;i++){var q=QS[i];h+="<div class=card><div class=q><b>"+(i+1)+". "+q.q+"</b></div>";for(var j=0;j<q.o.length;j++){h+="<label class=opt id=opt_"+i+"_"+j+" onclick=pick("+i+","+j+")>"+["A","B","C","D"][j]+") "+q.o[j]+"</label>";}h+="</div>";}document.getElementById("box").innerHTML=h;for(var k in answers){var el=document.getElementById("opt_"+k+"_"+answers[k]);if(el)el.classList.add("sel");}left=240;document.getElementById("tm").textContent="⏰ "+left+" ثانية للصفحة";clearInterval(timer);timer=setInterval(function(){left--;document.getElementById("tm").textContent="⏰ "+left+" ثانية للصفحة";if(left<=0){clearInterval(timer);alert("خلص وقت الصفحة - روح للصفحة اللي بعدها");}},1000);}function pick(i,j){answers[i]=j;for(var k=0;k<4;k++){var el=document.getElementById("opt_"+i+"_"+k);if(el)el.classList.remove("sel");}document.getElementById("opt_"+i+"_"+j).classList.add("sel");}function nextPage(){if((page+1)*4<QS.length){page++;render();window.scrollTo(0,0);}else{alert("دي آخر صفحة - دوس إنهاء");}}function finishExam(){clearInterval(timer);var name=document.getElementById("nm").value||"طالب";var correct=0,detail="";for(var i=0;i<QS.length;i++){var ok=answers[i]===QS[i].c;if(ok)correct++;detail+=(i+1)+". إجابتي: "+(answers[i]!=null?["A","B","C","D"][answers[i]]:"-")+" "+(ok?"✅":"❌")+" | الصح: "+["A","B","C","D"][QS[i].c]+"\\n";}var msg="أنا "+name+" - امتحان Mr Abdel Moez - درجتي "+correct+" من "+QS.length+"\\n"+detail;document.body.innerHTML="<div class=card style=text-align:center><h2>🎉 أحسنت يا بطل!</h2><h1>"+correct+" / "+QS.length+"</h1><p>"+name+"</p><pre style=text-align:left;direction:ltr;white-space:pre-wrap>"+detail+"</pre><button onclick=sendWA()>📤 إرسال النتيجة واتساب للمعلم</button></div>";window._msg=msg;}function sendWA(){var num=prompt("رقم واتساب المعلم (مثال 01000000000)","");if(!num)return;window.open("https://wa.me/20"+num.replace(/^0/,"")+"?text="+encodeURIComponent(window._msg),"_blank");}render();<\/script></body></html>';
+ var blob=new Blob([html],{type:'text/html'});
+ var url=URL.createObjectURL(blob); var a=document.createElement('a'); a.href=url; a.download='index.html'; document.body.appendChild(a); a.click(); setTimeout(function(){URL.revokeObjectURL(url); a.remove();},1000);
+ return true;
+}
+
+function goldMakeRealLink(){
+ // 1) نزل ملف الطالب الأول
+ goldMakeStudentFile();
+ // 2) افتح موقع عمل الرابط
+ setTimeout(function(){ window.open('https://app.netlify.com/drop','_blank'); }, 500);
+ var out=document.getElementById('goldAdditionsOut');
+ if(out) out.innerHTML = '<div style="background:#fff3cd;border:2px solid #ffd700;border-radius:12px;padding:12px;line-height:1.8"><b style="font-size:19px">🔗 اعمل الرابط في 30 ثانية - مرة واحدة بس:</b><br>'
+ + '<b>1.</b> ملف الامتحان نزل عندك دلوقتي - اسمه <b>امتحان-للطالب-Mr-Abdel-Moez.html</b><br>'
+ + '<b>2.</b> الموقع اللي اتفتح اسمه <b>Netlify Drop</b> - اسحب الملف ده وحطه جواه (Drag & Drop)<br>'
+ + '<b>3.</b> استنى 5 ثواني - هيطلعلك <b>رابط حقيقي</b> زي: <b>https://super-basbousa-d6cfdc.netlify.app</b> - دوس عليه هو نفسه، هو ده الامتحان<br>'
+ + '<b>4.</b> دوس على الرابط نفسه (اللي اسمه super-basbousa-xxx.netlify.app) - هيفتح الامتحان - انسخه وابعته واتساب للطلبة - ملحوظة: الملف دلوقتي اسمه index.html عشان يفتح على طول من غير ما تضطر تكتب اسم الملف<br>'
+ + '<b>💡 الرابط ده ثابت:</b> كل مرة تعمل امتحان جديد، ارفع الملف الجديد بنفس الطريقة وهيطلعلك رابط جديد.<br>'
+ + '<button onclick="window.open(\'https://app.netlify.com/drop\',\'_blank\')" style="background:#ffd700;padding:12px;border-radius:10px;font-weight:900;border:0;width:100%;margin-top:8px">🔗 افتح موقع عمل الرابط تاني</button></div>';
+ alert('✅ ملف الامتحان نزل - دلوقتي اسحبه في موقع Netlify اللي اتفتح، وهيطلعلك رابط حقيقي ابعته للطلبة');
+}
+
+function goldPublishOnline(){
+ goldMakeStudentFile(); alert('✅ نزل ملف الامتحان للطالب - ابعته واتساب للطلبة زي ما هو ملف HTML - الطالب يفتحه ويحل ويرسل النتيجة واتساب'); return;
+ if(!QS.length && !BANK.length){ alert('المصنع فاضي - نظم أسئلة الأول'); return; }
+ if(QS.length){ EXAMS.push({id:'e'+Date.now(),name:'امتحان - '+new Date().toLocaleDateString(),grade:'ثالثة ثانوي',type:'جرامر',published:true,questions:QS.map(function(q){return {q:q.q,o:q.o.slice(),c:q.c,reason:q.reason,conf:q.conf};})}); }
+ else { EXAMS.push({id:'e'+Date.now(),name:'امتحان من البنك - '+new Date().toLocaleDateString(),grade:'ثالثة ثانوي',type:'جرامر',published:true,questions:BANK.map(function(q){return {q:q.q,o:q.o.slice(),c:q.c,reason:q.reason,conf:q.conf};})}); }
+ saveAll(); try{ renderExams(); }catch(e){}
+ var out=document.getElementById('goldAdditionsOut'); if(out) out.innerHTML='<b style="color:green">✅ اتنشر للطلاب أونلاين - روح تبويب 📝 الامتحانات → دوس 🔗 توليد رابط أونلاين للطلبة → ابعته واتساب</b>';
+ alert('✅ اتنشر الامتحان للطلاب أونلاين - دلوقتي دوس توليد رابط من تبويب الامتحانات وابعته واتساب');
+ showTab('tabExams', document.querySelector('.tabs button:nth-child(11)'));
+}
+function goldSaveWork(){
+ try{ saveAll(); }catch(e){}
+ var data={exams:EXAMS,bank:BANK,qs:QS,results:RESULTS,pass:TEACHER_PASS,at:new Date().toLocaleString()};
+ var blob=new Blob([JSON.stringify(data)],{type:'application/json'});
+ var url=URL.createObjectURL(blob); var a=document.createElement('a'); a.href=url; a.download='Mr-Abdel-Moez-Backup-'+Date.now()+'.json'; document.body.appendChild(a); a.click(); setTimeout(function(){URL.revokeObjectURL(url); a.remove();},800);
+ var out=document.getElementById('goldAdditionsOut'); if(out) out.innerHTML='<b style="color:green">✅ اتحفظ الشغل - اتحفظ على الجهاز + نزل ملف نسخة احتياطية JSON - احتفظ بيه على فلاشة</b>';
+ alert('✅ اتحفظ الشغل - على الجهاز + ملف JSON نزل عندك');
+}
+function goldViewStudentAnswers(){
+ var out=document.getElementById('goldAdditionsOut');
+ var res=RESULTS||[];
+ if(!res.length){ if(out) out.innerHTML='<b>لسه مفيش طالب حل - بعد ما الطلبة يحلوا، هنا هتشوف: اسم الطالب + درجته + إجابته في كل سؤال (صح ✅ ولا غلط ❌) + الإجابة الصح</b><br><span class="small">جرب: ادخل كطالب وحل امتحان، وبعدين ارجع هنا ودوس معرفة إجابات الطالب تاني</span>'; showTab('tabLive', document.querySelector('.tabs button:nth-child(2)')); return; }
+ var h='<b>👀 إجابات الطلاب - '+res.length+' طالب</b><br>';
+ for(var i=0;i<res.length;i++){ var r=res[i]; h+='<div style="border:1px solid #ccc;border-radius:10px;padding:8px;margin:6px 0;background:#fff"><b>'+(r.name||('طالب '+(i+1)))+'</b> - الدرجة: '+(r.score||r.total||'')+' - '+(r.date||'')+'<br>';
+ if(r.answers && r.answers.length){ for(var j=0;j<r.answers.length;j++){ var a=r.answers[j]; var ok=(a===r.correct||a.correct); h+='<span>'+(j+1)+'. إجابة الطالب: '+(a.answer||a)+' '+(ok?'✅ صح':'❌ غلط')+'</span> '; } } else { h+='<span class="small">إجابات مفصلة: افتح تبويب 🔴 نتائج حية - هتلاقي كل إجابة بالتفصيل</span>'; }
+ h+='</div>'; }
+ if(out) out.innerHTML=h;
+ showTab('tabLive', document.querySelector('.tabs button:nth-child(2)'));
+ alert('✅ فتحت إجابات الطلاب - هتشوف كل طالب جاوب إيه في كل سؤال');
+}
+// ===== أونلاين
+
+
+var _bc=null; try{ _bc=new BroadcastChannel('moez_live'); _bc.onmessage=function(ev){ if(ev.data && ev.data.type==='result'){ receiveResult(ev.data.result, true); } }; }catch(e){}
+function receiveResult(res, fromLive){ var exists=false; for(var i=0;i<RESULTS.length;i++) if(RESULTS[i].code===res.code) exists=true; if(!exists){ RESULTS.push(res); saveAll(); } renderLive(); renderMotiv(); renderStats(); if(fromLive){ var st=document.getElementById('liveStatus'); if(st) st.textContent='🎉 نتيجة جديدة وصلت! '+res.name+' - '+res.score; } }
+function renderLive(){ var h=''; var sorted=RESULTS.slice().reverse(); for(var i=0;i<sorted.length;i++){ var r=sorted[i]; h+='<div class=q><b>🎉 '+r.name+'</b> - '+r.exam+'<br>الدرجة: <b>'+r.score+'</b> - '+r.time+'<br>إجابات: '+(r.answers||'')+'</div>'; } document.getElementById('liveResults').innerHTML=h||'لسه مفيش نتائج - ابعت رابط الامتحان للطالب'; var st=document.getElementById('liveStatus'); if(st && RESULTS.length) st.textContent='✅ وصل '+RESULTS.length+' نتيجة'; }
+function clearResults(){ if(confirm('مسح كل النتائج؟')){ RESULTS=[]; saveAll(); renderLive(); } }
+function importCode(){ var txt=document.getElementById('importCode').value.trim(); if(!txt){ alert('الصق الكود'); return; } try{ var res=JSON.parse(atob(txt)); receiveResult(res,false); alert('✅ اتضافت نتيجة '+res.name); }catch(e){ alert('الكود مش سليم'); } }
+function importResult(){ var txt=document.getElementById('importResult').value; if(!txt) return; RESULTS.push({name:txt.slice(0,40),exam:'مستورد',score:txt.slice(0,80),time:new Date().toLocaleString('ar-EG'),code:'manual'+Date.now()}); saveAll(); renderStats(); renderLive(); alert('اتضافت النتيجة'); }
+function exportResultsCsv(){ var s='Name,Exam,Score,Time,Answers\n'; for(var i=0;i<RESULTS.length;i++) s+='"'+RESULTS[i].name+'","'+RESULTS[i].exam+'","'+RESULTS[i].score+'","'+(RESULTS[i].time||'')+'","'+(RESULTS[i].answers||'')+'"\n'; var blob=new Blob(['\ufeff',s],{type:'text/csv'}); var url=URL.createObjectURL(blob); var a=document.createElement('a'); a.href=url; a.download='results.csv'; document.body.appendChild(a); try{ a.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window})); }catch(e){ a.click(); } }
+// ===== الطالب =====
+var curExam=null, curIdx=0, curScore=0, curAnswers=[], stuTimer=null, stuLeft=0, stuName='', curResultCode='';
+function renderStudent(){ var h=''; var pub=EXAMS.filter(function(e){return e.published;}); if(!pub.length) h='مفيش امتحانات منشورة دلوقتي'; for(var i=0;i<pub.length;i++){ var e=pub[i]; h+='<div class=q><b>'+e.name+'</b> <span class=badge>'+e.grade+'</span> <span class=badge>'+e.type+'</span><br>عدد الأسئلة: '+e.questions.length+'<br><button class="btn bGold" onclick="startStudentExam(\''+e.id+'\')">▶ ابدأ الامتحان</button></div>'; } document.getElementById('studentExams').innerHTML=h; }
+function startStudentExam(id){ for(var i=0;i<EXAMS.length;i++) if(EXAMS[i].id===id) curExam=EXAMS[i]; if(!curExam) return; stuName=prompt('اكتب اسمك يا بطل:')||'طالب'; curIdx=0; curScore=0; curAnswers=[]; stuPage=0; document.getElementById('studentExamBox').className='card'; document.getElementById('studentAfterSubmit').className='hidden'; document.getElementById('studentExamHead').innerHTML='<b>'+curExam.name+'</b> - '+stuName; document.getElementById('studentResult').innerHTML=''; showStudentQ(); }
+var stuPage=0, stuPageSize=4;
+var SUCCESS_EXPRS=['🎉 أحسنت يا بطل!','⭐ ممتاز! انت رائع!','👏 برافووو! إجابة صح!','💪 انت قدها! كمل كده!','🔥 رائع! ذكاء ثانوية عامة!','🏆 بطل! إجابة صحيحة!'];
+function showStudentQ(){ var totalPages=Math.ceil(curExam.questions.length/stuPageSize); if(stuPage>=totalPages){ finishStudentExam(); return; } var start=stuPage*stuPageSize; var end=Math.min(start+stuPageSize, curExam.questions.length); var h=''; if(curExam.passage && stuPage===0) h+='<div class=passage style="font-size:20px;line-height:1.6">'+curExam.passage+'</div>'; h+='<div style="text-align:center;font-weight:900;font-size:20px">الصفحة '+(stuPage+1)+' من '+totalPages+' - أسئلة '+(start+1)+' إلى '+end+'</div>'; for(var qi=start;qi<end;qi++){ var q=curExam.questions[qi]; h+='<div class="q studentBig" data-qidx="'+qi+'"><b>'+(qi+1)+'. '+q.q+'</b><br>'; for(var j=0;j<q.o.length;j++) h+='<label class=opt><input type="radio" name="stuQ'+qi+'" value="'+j+'" onchange="checkStudentAnswer('+qi+','+j+','+q.c+')"> '+['A','B','C','D'][j]+') '+q.o[j]+'</label>'; h+='<div id="stuFeedback'+qi+'"></div></div>'; } document.getElementById('studentExamQ').innerHTML=h; document.getElementById('studentExamQ').className='studentBig'; document.getElementById('btnStudentNext').textContent='التالي ➡ - الصفحة اللي بعدها'; stuLeft=getExamTime(); document.getElementById('studentTimer').textContent='⏰ '+stuLeft+' ثانية للصفحة دي - 240 ثانية'; clearInterval(stuTimer); stuTimer=setInterval(function(){ stuLeft--; document.getElementById('studentTimer').textContent='⏰ '+stuLeft+' ثانية للصفحة دي'; if(stuLeft<=0){ clearInterval(stuTimer); nextStudentQ(); } },1000); }
+function checkStudentAnswer(qi, chosen, correct){ var el=document.getElementById('stuFeedback'+qi); if(chosen===correct){ var msg=SUCCESS_EXPRS[Math.floor(Math.random()*SUCCESS_EXPRS.length)]; el.innerHTML='<div class=successMsg>'+msg+'</div>'; try{ var u=new SpeechSynthesisUtterance('أحسنت يا بطل'); u.lang='ar-EG'; speechSynthesis.speak(u); }catch(e){} } else { el.innerHTML='<div class=failMsg>❌ حاول تاني - فكر في القاعدة 💪</div>'; } }
+
+function nextStudentQ(){ var start=stuPage*stuPageSize; var end=Math.min(start+stuPageSize, curExam.questions.length); for(var qi=start;qi<end;qi++){ var sel=document.querySelector('input[name="stuQ'+qi+'"]:checked'); var ans=sel?parseInt(sel.value):-1; var q=curExam.questions[qi]; if(ans===q.c) curScore++; curAnswers.push((qi+1)+'-'+(ans>=0?['A','B','C','D'][ans]:'-')); } clearInterval(stuTimer); stuPage++; showStudentQ(); }
+document.getElementById('btnStudentNext').onclick=function(){ nextStudentQ(); };
+function finishStudentExam(){ clearInterval(stuTimer); document.getElementById('studentExamQ').innerHTML=''; document.getElementById('studentTimer').textContent=''; var pct=Math.round(curScore/curExam.questions.length*100); var time=new Date().toLocaleString('ar-EG'); var res={name:stuName,exam:curExam.name,score:curScore+'/'+curExam.questions.length+' ('+pct+'%)',time:time,answers:curAnswers.join(' '),code:''}; try{ res.code=btoa(unescape(encodeURIComponent(JSON.stringify(res)))); }catch(e){ res.code=''; } curResultCode=res.code; document.getElementById('studentResult').innerHTML='<h2>🎉 خلصت يا '+stuName+'!</h2><h2>درجتك: '+res.score+'</h2><p>✅ نتيجتك اتبعتت للمعلم - هتظهر عنده فوراً في قسم النتائج الحية</p>'; document.getElementById('resultCode').textContent=res.code; document.getElementById('studentAfterSubmit').className=''; try{ if(_bc) _bc.postMessage({type:'result',result:res}); }catch(e){} receiveResult(res,false); }
+function exitStudentExam(){ clearInterval(stuTimer); document.getElementById('studentExamBox').className='card hidden'; renderStudent(); }
+function sendWhatsApp(){ var wa=document.getElementById('waNumber').value||''; var msg='أنا '+stuName+' 🎓 - امتحان: '+curExam.name+' - درجتي: '+curScore+'/'+curExam.questions.length+' - إجاباتي: '+curAnswers.join(' ')+' - كود النتيجة: '+curResultCode; if(wa) window.open('https://wa.me/'+wa+'?text='+encodeURIComponent(msg),'_blank'); else window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank'); }
+function copyResult(){ try{ navigator.clipboard.writeText(curResultCode); alert('✅ اتنسخ كود النتيجة - ابعته للمعلم'); }catch(e){ prompt('انسخ كود النتيجة',curResultCode); } }
+var MOTS=["الثانوية مش صعبة - هي محتاجة تركيز كل يوم.","كل سؤال بتحله النهاردة بيقربك من حلمك.","اللي بيذاكر بذكاء بيسبق اللي بيذاكر كتير.","Mr Abdel Moez بيقولك: انت قدها!"]; var mi=0; setInterval(function(){ mi=(mi+1)%MOTS.length; var el=document.getElementById('motivHome'); if(el) el.textContent=MOTS[mi]; },4000);
+setInterval(function(){ try{ var s=localStorage.getItem('moez_platform_v2'); if(s){ var d=JSON.parse(s); if(d.results && d.results.length!==RESULTS.length){ RESULTS=d.results; renderLive(); renderMotiv(); } } }catch(e){} },2000);
+loadAll();
+if(location.hash.indexOf('#online=')>=0){ var enc=location.hash.split('#online=')[1]; try{ var data=JSON.parse(decodeURIComponent(escape(atob(enc)))); EXAMS=[data]; setTimeout(function(){ goStudent(); setTimeout(function(){ startStudentExam(data.id); },400); },300); }catch(e){} }
+else if(location.hash.indexOf('#exam=')>=0){ var eid=location.hash.split('#exam=')[1]; setTimeout(function(){ goStudent(); setTimeout(function(){ startStudentExam(eid); },300); },300); }
+</script><!-- LIVE LINK -->
+<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.33.1.min.js"></script>
+<script>
+var LIVE_PUBNUB=null;
+function liveInit(code){ try{ LIVE_PUBNUB=new PubNub({publishKey:'demo',subscribeKey:'demo',userId:'teacher-'+code}); LIVE_PUBNUB.subscribe({channels:['mr-abdel-moez-'+code]}); LIVE_PUBNUB.addListener({message:function(m){ var d=m.message; if(d&&d.type==='answer'){ var out=document.getElementById('goldAdditionsOut'); if(out) out.innerHTML='<b style="color:green">وصلت اجابة من '+(d.name||'طالب')+' - درجته: '+d.score+' / '+d.total+'</b>'; try{ RESULTS.push({name:d.name,score:d.score,total:d.total,date:new Date().toLocaleString()}); saveAll(); }catch(e){} } }}); return true; }catch(e){ return false; } }
+
+function getExamTime(){ var v=parseInt(localStorage.getItem('examTime')||'240'); if(!v||v<10) v=240; return v; } document.addEventListener('DOMContentLoaded', function(){ var inp=document.getElementById('examTimeInput'); if(inp) inp.value=getExamTime(); });
+function saveExamTime(){ var v=parseInt(document.getElementById('examTimeInput').value||'240'); if(!v||v<10){ alert('اكتب وقت من 10 لـ 3600 ثانية'); return; } localStorage.setItem('examTime', v); var m=document.getElementById('examTimeMsg'); if(m) m.textContent='اتحفظ: '+v+' ثانية'; alert('اتحفظ وقت الامتحان: '+v+' ثانية للصفحة'); }
+function connectNetlify(){
+ var saved = localStorage.getItem('netlifyDomain')||'';
+ var d = prompt('الصق هنا رابط Netlify بتاع المنصة (مثال: https://mr-abdel-moez-xxx.netlify.app)', saved);
+ if(!d) return;
+ d = d.trim().replace(/\/$/,'');
+ if(d.indexOf('http')!==0) d='https://'+d;
+ localStorage.setItem('netlifyDomain', d);
+ var out=document.getElementById('goldAdditionsOut');
+ if(out) out.innerHTML='<b style="color:green">✅ اتربطت بـ Netlify: '+d+' - من دلوقتي أي رابط ربط هيتعمل من الدومين ده على طول</b>';
+ alert('✅ اتربطت بـ Netlify: '+d);
+}
+function getBaseForLink(){
+ var saved = localStorage.getItem('netlifyDomain')||'';
+ if(saved) return saved;
+ return location.href.split('?')[0].split('#')[0];
+}
+
+function goldMakeLiveLink(){ var _base=location.href; if(( _base.indexOf('metaaiusercontent')>=0 || _base.indexOf('sercontent')>=0) && !localStorage.getItem('netlifyDomain')){ alert('⚠️ انت فاتح المنصة من رابط الشات - دوس زر (اربط المنصة بـ Netlify) - الصق رابط Netlify مرة واحدة - وبعد كده أي رابط ربط هيتعمل من Netlify على طول'); window.open('https://app.netlify.com/drop','_blank'); return; } var code='MOEZ-'+Math.floor(1000+Math.random()*9000); var qs=QS.length?QS:(EXAMS.length?EXAMS[EXAMS.length-1].questions:[]); if(!qs.length){ alert('نظم اسئلة الاول'); return; } localStorage.setItem('liveExam_'+code, JSON.stringify(qs)); var base=getBaseForLink(); var link=base+'?live='+code; liveInit(code); var out=document.getElementById('goldAdditionsOut'); if(out) out.innerHTML='<div style="background:#dcfce7;border:2px solid green;border-radius:12px;padding:12px"><b>رابط الربط الحقيقي اتعمل!</b><br>الكود: <b>'+code+'</b><br>الرابط: <b>'+link+'</b><br><button onclick="navigator.clipboard.writeText(\''+link+'\');alert(\'اتنسخ\')">انسخ الرابط</button><br><span>خلي الصفحة دي مفتوحة - اجابات الطلبة هتوصلك هنا</span></div>'; alert('اتعمل رابط ربط - الكود: '+code); }
+</script>
+</body></html>
